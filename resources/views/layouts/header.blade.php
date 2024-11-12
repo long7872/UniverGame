@@ -4,7 +4,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="{{ route('index') }}" class="logo">
                         <img src="{{ asset('storage/images/logo.png') }}" alt="" style="width: 158px;">
                     </a>
                     <!-- ***** Logo End ***** -->

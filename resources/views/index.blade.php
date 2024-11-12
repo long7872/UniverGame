@@ -89,58 +89,58 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="main-button">
-                        <a href="shop.html">View All</a>
+                        <a href="{{ route('shop') }}">View All</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="item">
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/trending-01.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/trending-01.jpg') }}" alt=""></a>
                             <span class="price"><em>$28</em>$20</span>
                         </div>
                         <div class="down-content">
                             <span class="category">Action</span>
                             <h4>Assasin Creed</h4>
-                            <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
+                            <a href="{{ route('details') }}"><i class="fa fa-shopping-bag"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="item">
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/trending-02.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/trending-02.jpg') }}" alt=""></a>
                             <span class="price">$44</span>
                         </div>
                         <div class="down-content">
                             <span class="category">Action</span>
                             <h4>Assasin Creed</h4>
-                            <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
+                            <a href="{{ route('details') }}"><i class="fa fa-shopping-bag"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="item">
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/trending-03.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/trending-03.jpg') }}" alt=""></a>
                             <span class="price"><em>$64</em>$44</span>
                         </div>
                         <div class="down-content">
                             <span class="category">Action</span>
                             <h4>Assasin Creed</h4>
-                            <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
+                            <a href="{{ route('details') }}"><i class="fa fa-shopping-bag"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="item">
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/trending-04.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/trending-04.jpg') }}" alt=""></a>
                             <span class="price">$32</span>
                         </div>
                         <div class="down-content">
                             <span class="category">Action</span>
                             <h4>Assasin Creed</h4>
-                            <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
+                            <a href="{{ route('details') }}"><i class="fa fa-shopping-bag"></i></a>
                         </div>
                     </div>
                 </div>
@@ -159,78 +159,78 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="main-button">
-                        <a href="shop.html">View All</a>
+                        <a href="{{ route('shop') }}">View All</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="item">
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/top-game-01.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/top-game-01.jpg') }}" alt=""></a>
                         </div>
                         <div class="down-content">
                             <span class="category">Adventure</span>
                             <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/top-game-02.jpg') }}" alt=""></a>
-                        </div>
-                        <div class="down-content">
-                            <span class="category">Adventure</span>
-                            <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
+                            <a href="{{ route('details') }}">Explore</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="item">
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/top-game-03.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/top-game-02.jpg') }}" alt=""></a>
                         </div>
                         <div class="down-content">
                             <span class="category">Adventure</span>
                             <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
+                            <a href="{{ route('details') }}">Explore</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="item">
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/top-game-04.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/top-game-03.jpg') }}" alt=""></a>
                         </div>
                         <div class="down-content">
                             <span class="category">Adventure</span>
                             <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
+                            <a href="{{ route('details') }}">Explore</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="item">
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/top-game-05.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/top-game-04.jpg') }}" alt=""></a>
                         </div>
                         <div class="down-content">
                             <span class="category">Adventure</span>
                             <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
+                            <a href="{{ route('details') }}">Explore</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="item">
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/top-game-06.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/top-game-05.jpg') }}" alt=""></a>
                         </div>
                         <div class="down-content">
                             <span class="category">Adventure</span>
                             <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
+                            <a href="{{ route('details') }}">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="item">
+                        <div class="thumb">
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/top-game-06.jpg') }}" alt=""></a>
+                        </div>
+                        <div class="down-content">
+                            <span class="category">Adventure</span>
+                            <h4>Assasin Creed</h4>
+                            <a href="{{ route('details') }}">Explore</a>
                         </div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@
                     <div class="item">
                         <h4>Action</h4>
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/categories-01.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/categories-01.jpg') }}" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -259,7 +259,7 @@
                     <div class="item">
                         <h4>Action</h4>
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/categories-05.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/categories-05.jpg') }}" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -267,7 +267,7 @@
                     <div class="item">
                         <h4>Action</h4>
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/categories-03.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/categories-03.jpg') }}" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -275,7 +275,7 @@
                     <div class="item">
                         <h4>Action</h4>
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/categories-04.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/categories-04.jpg') }}" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -283,7 +283,7 @@
                     <div class="item">
                         <h4>Action</h4>
                         <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/categories-05.jpg') }}" alt=""></a>
+                            <a href="{{ route('details') }}"><img src="{{ asset('storage/images/categories-05.jpg') }}" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -304,7 +304,7 @@
                                 </div>
                                 <p>Lorem ipsum dolor consectetur adipiscing, sed do eiusmod tempor incididunt.</p>
                                 <div class="main-button">
-                                    <a href="shop.html">Shop Now</a>
+                                    <a href="{{ route('shop') }}">Shop Now</a>
                                 </div>
                             </div>
                         </div>
