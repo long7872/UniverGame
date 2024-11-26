@@ -651,7 +651,6 @@ Banner Style
 */
 
 .main-banner {
-  background-image: url(../images/banner-bg.jpg);
   border-radius: 0px 0px 150px 150px;
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -678,7 +677,6 @@ Banner Style
 
 .main-banner .caption h2:after {
   position: absolute;
-  background-image: url(../images/caption-dec.png);
   width: 202px;
   height: 12px;
   content: '';
@@ -1019,7 +1017,6 @@ CTA Style
 }
 
 .cta::after {
-  background-image: url(../images/cta-bg.jpg);
   max-width: 550px;
   max-height: 510px;
   width: 100%;
@@ -1116,7 +1113,6 @@ footer {
   background-color: #0071f8;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(../images/footer-bg.jpg);
   min-height: 150px;
   border-radius: 150px 150px 0px 0px;
 }
@@ -1148,7 +1144,6 @@ Page Header Style
 */
 
 .page-heading {
-  background-image: url(../images/page-heading-bg.jpg);
   border-radius: 0px 0px 150px 150px;
   background-position: center bottom;
   background-repeat: no-repeat;

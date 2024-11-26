@@ -8,18 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <title>Lugx Gaming Shop HTML5 Template</title>
+    <title>UniverGame</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 
     <!-- Custom -->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/owl.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
     <style>
@@ -53,14 +53,16 @@
 
     @yield('content')
 
+    <!-- ***** Footer Area Start ***** -->
     @include('layouts.footer')
+    <!-- ***** Footer Area End ***** -->
 
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/isotope.min.js') }}"></script>
-    <script src="{{ asset('js/owl-carousel.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
     <script src="{{ asset('js/counter.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
 
