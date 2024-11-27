@@ -31,6 +31,10 @@ font & reset css
 reset
 --------------------------------------------- 
 */
+
+body{
+  background-color:   #f0f0f0;
+}
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
 s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
@@ -68,7 +72,7 @@ ul, li {
   list-style: none;
 }
 
-header, nav, section, article, aside, footer, hgroup {
+header, nav, section, article, aside, hgroup {
   display: block;
 }
 
@@ -105,7 +109,7 @@ p {
 }
 
 img {
-  width: 100%;
+ /* // width: 100%; */
   overflow: hidden;
 }
 
@@ -130,11 +134,11 @@ body {
 }
 
 .section {
-  margin-top: 120px;
+  /* margin-top: 120px; */
 }
 
 .section-heading {
-  margin-bottom: 70px;
+  margin-bottom: 30px;
 }
 
 .section-heading h2 {
@@ -297,15 +301,16 @@ Header Style
   -moz-transition: all .5s ease 0s;
   -o-transition: all .5s ease 0s;
   transition: all .5s ease 0s;
+  z-index: 100;
 }
 
 .background-header .logo img {
   max-width: 110px;
 }
 
-.header-area {
+/* .header-area {
   position: absolute;
-  background-color: transparent;
+  background-color: red;
   top: 40px;
   left: 0;
   right: 0;
@@ -314,7 +319,7 @@ Header Style
   -moz-transition: all .5s ease 0s;
   -o-transition: all .5s ease 0s;
   transition: all .5s ease 0s;
-}
+} */
 
 .header-area .main-nav {
   background: transparent;
@@ -650,123 +655,6 @@ Banner Style
 --------------------------------------------- 
 */
 
-.main-banner {
-  border-radius: 0px 0px 150px 150px;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 225px 0px;
-}
-
-.main-banner .caption h6 {
-  font-size: 20px;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.main-banner .caption h2 {
-  font-size: 48px;
-  color: #fff;
-  margin-top: 20px;
-  position: relative;
-  padding-bottom: 5px;
-  margin-bottom: 40px;
-}
-
-.main-banner .caption h2:after {
-  position: absolute;
-  width: 202px;
-  height: 12px;
-  content: '';
-  left: 125px;
-  bottom: 0;
-}
-
-.main-banner .caption p {
-  color: #fff;
-  margin-bottom: 70px;
-}
-
-.main-banner .caption form {
-  position: relative;
-  max-width: 450px;
-}
-
-.main-banner .caption form input {
-  max-width: 450px;
-  width: 100%;
-  height: 50px;
-  outline: none;
-  border-radius: 25px;
-  background-color: #fff;
-  border: none;
-  padding: 0px 25px;
-  font-size: 14px;
-  color: #7a7a7a;
-}
-
-.main-banner .caption form button {
-  display: inline-block;
-  height: 50px;
-  line-height: 50px;
-  background-color: #ee626b;
-  color: #fff;
-  font-size: 15px;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 0px 25px;
-  border: none;
-  border-radius: 25px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: all .3s;
-}
-
-.main-banner .caption form button:hover {
-  background-color: #0071f8;
-}
-
-.main-banner .right-image {
-  position: relative;
-}
-
-.main-banner .right-image img {
-  border-radius: 25px;
-}
-
-.main-banner .right-image span.price {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  border-radius: 25px;
-  background-color: #008af8;
-  font-size: 22px;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #fff;
-  padding: 4px 15px;
-}
-
-.main-banner .right-image span.offer {
-  position: absolute;
-  left: -25px;
-  bottom: -25px;
-  border-radius: 50%;
-  background-color: #ee626b;
-  font-size: 28px;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #fff;
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  line-height: 100px;
-}
-
 
 
 /* 
@@ -815,7 +703,6 @@ Services Style
 Trending Style
 --------------------------------------------- 
 */
-
 .trending .main-button {
   margin-top: 32px;
   text-align: right;
@@ -903,77 +790,6 @@ Trending Style
 Most Played Style
 --------------------------------------------- 
 */
-
-.most-played {
-  background-color: #f7f7f7;
-  padding: 100px 0px;
-  border-radius: 150px;
-}
-
-.most-played .main-button {
-  margin-top: 32px;
-  text-align: right;
-}
-
-.most-played .item  {
-  background-color: #fff;
-  position: relative;
-  border-radius: 25px;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.most-played .item .thumb {
-  position: relative;
-  border-radius: 25px;
-  overflow: hidden;
-}
-
-.most-played .item .down-content {
-  padding: 20px 15px 40px 15px;
-}
-
-.most-played .item .down-content span.category {
-  font-size: 14px;
-  color: #7a7a7a;
-  margin-bottom: 5px;
-  display: inline-block;
-}
-
-.most-played .item .down-content h4 {
-  font-size: 17px;
-  font-weight: 600;
-  transition: all .3s;
-}
-
-.most-played .item .down-content a {
-  position: absolute;
-  display: inline-block;
-  text-align: center;
-  line-height: 40px;
-  height: 40px;
-  padding: 0px 15px;
-  background-color: #ee626b;
-  color: #fff;
-  border-radius: 20px;
-  font-size: 15px;
-  text-transform: uppercase;
-  font-weight: 600;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -20px;
-  transition: all .3s;
-}
-
-.most-played .item:hover .down-content h4 {
-  color: #0071f8;
-}
-
-.most-played .item:hover .down-content a {
-  background-color: #0071f8;
-}
-
-
 /* 
 ---------------------------------------------
 Categories Style
@@ -1108,35 +924,6 @@ Footer Style
 --------------------------------------------- 
 */
 
-footer {
-  margin-top: 150px;
-  background-color: #0071f8;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 150px;
-  border-radius: 150px 150px 0px 0px;
-}
-
-footer p {
-  text-align: center;
-  line-height: 90px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-footer p a {
-  color: #fff;
-  transition: all .3s;
-  position: relative;
-  z-index: 3;
-}
-
-footer p a:hover {
-  opacity: 0.75;
-}
-
-
 /* 
 ---------------------------------------------
 Page Header Style
@@ -1215,18 +1002,37 @@ Shop Page Style
   color: #ee626b;
 }
 
+.trending-box {
+  display: flex;
+  flex-wrap: wrap; /* Đảm bảo các item xuống hàng khi hết chỗ */
+  gap: 15px; /* Khoảng cách giữa các item */
+  justify-content: space-between; /* Căn đều khoảng cách giữa các item */
+}
+
+
+
+.trending-box{
+  background-color: #0071f8;
+  margin-top: 20px;
+  border-radius: 15px;
+  width: 100%;
+}
+
 .trending-box .item  {
   background-color: #eeeeee;
   position: relative;
   overflow: hidden;
   border-radius: 25px;
   margin-bottom: 30px;
+  margin-top: 30px;
+  margin-left: 15px;
 }
 
 .trending-box .item .thumb {
   position: relative;
   border-radius: 25px;
   overflow: hidden;
+  
 }
 
 .trending-box .item span.price em {
@@ -1606,14 +1412,8 @@ body {
   .background-header .main-nav ul.nav {
     margin-top: 20px;
   }
-  .main-banner .caption {
-    margin-bottom: 45px;
-    text-align: center;
-  }
-  .main-banner .caption form,
-  .main-banner .caption form input {
-    max-width: 100%;
-  }
+ 
+  
   .features .item {
     margin-bottom: 30px;
   }
@@ -1665,4 +1465,17 @@ body {
 
 @media (max-width: 1200px) {
   
+}
+/* game */
+/* Styling cho Heading */
+.section-heading h6 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #777;
+}
+
+.section-heading h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
 }

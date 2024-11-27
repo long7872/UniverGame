@@ -1,0 +1,236 @@
+/* Thêm background cho container */
+.tag-container {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Căn giữa các phần tử theo chiều ngang */
+    align-items: flex-start;
+    /* Căn chỉnh các phần tử theo chiều dọc bắt đầu từ đầu */
+    gap: 10px;
+    /* Giảm khoảng cách giữa các phần tử theo chiều ngang */
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* Styling cho các tag */
+.tag {
+    padding: 8px 20px;
+    /* Giảm padding trên và dưới để giảm khoảng cách theo chiều dọc */
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: linear-gradient(45deg, #ff66b2, #b86bff);
+    /* Gradient màu sắc đẹp mắt */
+}
+
+/* Các màu sắc cho mỗi nút */
+.tag:nth-child(1) {
+    background: linear-gradient(45deg, #ff66b2, #ff3385);
+    /* Gradient cho Girls */
+}
+
+.tag:nth-child(2) {
+    background: linear-gradient(45deg, #b86bff, #7f5fff);
+    /* Gradient cho Fighting */
+}
+
+.tag:nth-child(3) {
+    background: linear-gradient(45deg, #00b8d4, #008e9b);
+    /* Gradient cho Driving */
+}
+
+.tag:nth-child(4) {
+    background: linear-gradient(45deg, #ff7f50, #ff502d);
+    /* Gradient cho Shooting */
+}
+
+.tag:nth-child(5) {
+    background: linear-gradient(45deg, #4caf50, #388e3c);
+    /* Gradient cho Strategy & RPG */
+}
+
+.tag:nth-child(6) {
+    background: linear-gradient(45deg, #f44336, #c0392b);
+    /* Gradient cho Action & Adventure */
+}
+
+.tag:nth-child(7) {
+    background: linear-gradient(45deg, #ff9800, #e65100);
+    /* Gradient cho 2 player */
+}
+
+.tag:nth-child(8) {
+    background: linear-gradient(45deg, #00bcd4, #0288d1);
+    /* Gradient cho Gun */
+}
+
+.tag:nth-child(9) {
+    background: linear-gradient(45deg, #ffeb3b, #fbc02d);
+    /* Gradient cho Car */
+}
+
+.tag:nth-child(10) {
+    background: linear-gradient(45deg, #ff69b4, #ff4081);
+    /* Gradient cho Dress Up */
+}
+
+.tag:nth-child(11) {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    /* Gradient cho Scary */
+}
+
+.tag:nth-child(12) {
+    background: linear-gradient(45deg, #9b59b6, #e74c3c);
+    /* Gradient cho Arcade */
+}
+
+.tag:nth-child(13) {
+    background: linear-gradient(45deg, #9c27b0, #7b1fa2);
+    /* Gradient cho Cooking */
+}
+
+.tag:nth-child(14) {
+    background: linear-gradient(45deg, #8bc34a, #689f38);
+    /* Gradient cho Army */
+}
+
+
+/* Cấu hình cơ bản cho các tag */
+/* Font chữ vui nhộn từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Cấu hình cơ bản cho các tag */
+/* CSS */
+.tag {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    /* Font chữ vui nhộn */
+    cursor: pointer;
+    border: 2px solid #fff;
+    transition: 0.5s;
+    /* Mượt mà */
+    border-radius: 75px;
+    font-weight: 700;
+    background-size: 200% auto;
+    /* Đặt nền */
+    /* background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);  */
+}
+
+/* Hiệu ứng hover */
+.tag:hover {
+    background-position: right center;
+    /* Di chuyển gradient khi hover */
+    color: white;
+    /* Giữ màu chữ */
+    text-decoration: none;
+    transform: translateY(-5px);
+    /* Nâng nút lên khi hover */
+    filter: brightness(1.3);
+    /* Làm sáng nút một chút khi hover */
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.1);
+    /* Hiệu ứng box-shadow */
+}
+
+/* Hiệu ứng khi nút được nhấn */
+.tag:active {
+    transform: scale(0.95);
+    /* Thu nhỏ nút khi nhấn */
+}
+
+/* search area ahasokhsaifhsaokdsa */
+/* Kết - Gạch */
+.navbar-brand img {
+    margin-right: 10px;
+    margin-left: 40px;
+  }
+  
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.8); /* Màu nền với độ trong suốt */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Phần viền dưới navbar */
+  }
+  
+  .form-inline {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-control {
+    width: 200px;
+  }
+  
+  .navbar-nav .nav-item {
+    margin-right: 25px; /* Khoảng cách giữa các mục */
+  }
+  
+  .navbar-nav .nav-item:last-child {
+    margin-right: 0; /* Loại bỏ khoảng cách cho mục cuối cùng */
+  }
+  
+  
+  
+  /* ////////////////////////////////////////////////////////////////////////////////
+  //                                 SEARCH BOX                                 //
+  //////////////////////////////////////////////////////////////////////////////// */
+  
+  
+  .searchBox:hover > .searchInput {
+      width: 240px;
+      padding: 0 6px;
+  }
+  
+  .searchBox:hover > .searchButton {
+    background: white;
+    color : #2f3640;
+  }
+  
+  .searchButton {
+      color: black;
+      float: right;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.4s;
+  }
+  
+  .searchInput {
+      border: none; /* Loại bỏ các viền khác */
+      border-bottom: 2px solid #000; /* Thêm viền dưới màu trắng với độ dày 2px */
+      background: none;
+      outline:none;
+      float:left;
+      padding: 0;
+      color: black;
+      font-size: 16px;
+      transition: 0.4s;
+      line-height: 40px;
+      width: 0px;
+  
+  
+  }
+  
+  @media screen and (max-width: 620px) {
+  .searchBox:hover > .searchInput {
+      width: 240px;
+      padding: 0 6px;
+  }
+  }
+  /* Kết */
+

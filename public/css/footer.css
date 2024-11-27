@@ -1,0 +1,103 @@
+/* Thêm màu sắc và bo tròn cho icon */
+
+footer{
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+footer a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    /* Điều chỉnh kích thước icon */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+/* Các màu sắc cho từng icon */
+footer .fab.fa-facebook-f {
+    background-color: #3b5998;
+    color: white;
+    padding: 10px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 100%;
+}
+
+footer .fab.fa-twitter {
+    background-color: #1da1f2;
+    color: white;
+    padding: 10px;
+
+    border-radius: 100%;
+}
+
+footer .fab.fa-google {
+    background-color: #db4437;
+    color: white;
+    padding: 10px;
+    border-radius: 100%;
+}
+
+footer .fab.fa-instagram {
+    background-color: #e4405f;
+    color: white;
+    padding: 10px;
+    border-radius: 100%;
+}
+
+footer .fab.fa-linkedin {
+    background-color: #0077b5;
+    color: white;
+    padding: 10px;
+    border-radius: 100%;
+}
+
+footer .fab.fa-github {
+    background-color: #333333;
+    color: white;
+    padding: 10px;
+    border-radius: 100%;
+}
+
+/* Hiệu ứng hover khi rê chuột vào các icon */
+footer .icon:hover {
+    background-color: #555;
+    color: white;
+    transform: scale(1.2);
+}
+
+
+footer .linkFooter:hover {
+    color: rgb(54, 205, 177) !important;
+    /* Đảm bảo màu khi hover */
+    transition: color 0.2s ease;
+    /* Thêm hiệu ứng chuyển màu */
+}
+
+
+/* Thêm styling cho đoạn text footer */
+footer .text-muted {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+footer h6 {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* Định dạng màu và phông chữ cho văn bản trong footer */
+footer .container p {
+    font-family: 'Arial', sans-serif;
+    color: #6c757d;
+}
+
+
+
