@@ -45,6 +45,7 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
+
 .clearfix:after {
   content: ".";
   display: block;
@@ -1245,11 +1246,14 @@ Single Page Style
 
 .tabs-content {
   background-color: #f7f7f7;
-  border-radius: 25px;
+  border-radius: 15px;
   padding: 60px;
   transition: all 0.3s;
+  /* margin-top: 20px !important; */
 }
-
+.more-info .col-lg-10 {
+  padding: 0 !important;
+}
 .tabs-content .nav-link {
   border: none;
   border-radius: 0px;
@@ -1284,10 +1288,17 @@ Single Page Style
   margin-top: 30px;
 }
 
-.related-games .main-button {
-  text-align: right;
-  margin-top: 32px;
+.game-container .most-played  {
+  border-radius: 0;
+  
 }
+.game-container .most-played .main-button {
+  display: none;
+}
+.game-container .most-played .item{
+  margin-bottom: 20px;
+}
+
 
 
 /* 
@@ -1428,9 +1439,6 @@ body {
   .trending .main-button,
   .cta::after,
   .most-played .main-button,
-  .related-games .main-button {
-    display: none;
-  }
   .most-played .section-heading {
     text-align: center;
   }

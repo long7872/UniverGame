@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-heading header-text">
+    {{-- <div class="page-heading header-text">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -10,86 +10,136 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+    <div class="game-container">
 
-    <div class="single-product section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="left-image">
-                        <img src="{{ asset('storage/images/single-game.jpg') }}" alt="">
+        <div class="game-embed-section">
+            <div class="container">
+                <div class="row">
+                    <!-- Game Embed Area -->
+                    <div class="col-lg-10 game-frame offset-lg-1">
+                        <object data="https://quyen-jr.github.io/Webgame_game01/" class="game-object" allow="fullscreen"
+                            allowfullscreen>
+                            <!-- Nội dung dự phòng nếu không thể tải trang trò chơi -->
+                            <p>Trò chơi không thể tải được. Vui lòng thử lại sau.</p>
+                        </object>
+
                     </div>
-                </div>
-                <div class="col-lg-6 align-self-center">
-                    <h4>Call of Duty®: Modern Warfare® II</h4>
-                    <span class="price"><em>$28</em> $22</span>
-                    <p>LUGX Gaming Template is based on the latest Bootstrap 5 CSS framework. This template is provided by
-                        TemplateMo and it is suitable for your gaming shop ecommerce websites. Feel free to use this for any
-                        purpose. Thank you.</p>
-                    <form id="qty" action="#">
-                        <input type="qty" class="form-control" id="1" aria-describedby="quantity"
-                            placeholder="1">
-                        <button type="submit"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
-                    </form>
-                    <ul>
-                        <li><span>Game ID:</span> COD MMII</li>
-                        <li><span>Genre:</span> <a href="#">Action</a>, <a href="#">Team</a>, <a
-                                href="#">Single</a></li>
-                        <li><span>Multi-tags:</span> <a href="#">War</a>, <a href="#">Battle</a>, <a
-                                href="#">Royal</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-12">
-                    <div class="sep"></div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="more-info">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="tabs-content">
+                </div>
+                <div class="row rating-instruction-row">
+                    <div class="col-lg-10 instruction-rating offset-lg-1">
                         <div class="row">
-                            <div class="nav-wrapper ">
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
-                                            data-bs-target="#description" type="button" role="tab"
-                                            aria-controls="description" aria-selected="true">Description</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab"
-                                            data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews"
-                                            aria-selected="false">Reviews (3)</button>
-                                    </li>
-                                </ul>
+                            <!-- Game Instructions and Rating Section -->
+
+                            <!-- Game Instructions (8 columns) -->
+                            <div class="game-instructions">
+                                <h4>Hướng dẫn chơi game</h4>
+                                <p><strong>1.</strong> Sử dụng các phím <span class="key">W</span><span
+                                        class="key">A</span><span class="key">S</span><span class="key">D</span> để
+                                    điều khiển.</p>
+                                <p><strong>2.</strong> Nhấn <strong>ESC</strong> để mở menu tạm dừng.</p>
+                                <p><strong>3.</strong> Tham gia vào các màn chơi để ghi điểm và khám phá thêm nhiều tính
+                                    năng hấp dẫn.</p>
                             </div>
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="description" role="tabpanel"
-                                    aria-labelledby="description-tab">
-                                    <p>You can search for more templates on Google Search using keywords such as "templatemo
-                                        digital marketing", "templatemo one-page", "templatemo gallery", etc. Please tell
-                                        your friends about our website. If you need a variety of HTML templates, you may
-                                        visit Tooplate and Too CSS websites.</p>
-                                    <br>
-                                    <p>Coloring book air plant shabby chic, crucifix normcore raclette cred swag artisan
-                                        activated charcoal. PBR&B fanny pack pok pok gentrify truffaut kitsch helvetica jean
-                                        shorts edison bulb poutine next level humblebrag la croix adaptogen. Hashtag poke
-                                        literally locavore, beard marfa kogi bruh artisan succulents seitan tonx waistcoat
-                                        chambray taxidermy. Same cred meggings 3 wolf moon lomo irony cray hell of bitters
-                                        asymmetrical gluten-free art party raw denim chillwave tousled try-hard succulents
-                                        street art.</p>
+
+                            <!-- Rating Section (2 columns) -->
+
+                        </div>
+                        <div class="row">
+
+                            <div class="rating-section">
+                                <h3>Game Name</h3>
+                                <p>286,084 lượt chơi</p>
+                                <div class="rating-buttons">
+                                    <div class="rating-score">
+                                        <p><strong>8.1</strong> <i class="bi bi-star-fill"></i></p>
+                                    </div>
+                                    <button class="rating-btn" data-rate="like">
+                                        <i class="bi bi-hand-thumbs-up fa-lg" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="rating-btn" data-rate="dislike">
+                                        <i class="bi bi-hand-thumbs-down fa-lg" aria-hidden="true"></i>
+                                    </button>
+                                    <!-- Dropdown for reporting -->
+                                    <div class="dropdown">
+                                        <button class="dropdown-btn" id="dropDownReport">Báo cáo</button>
+                                        <div class="dropdownReport-content">
+                                            <a href="#" data-report="bug">Lỗi</a>
+                                            <a href="#" data-report="harmful">Có hại</a>
+                                            <a href="#" data-report="illegal">Vi phạm pháp luật</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                                    <p>Coloring book air plant shabby chic, crucifix normcore raclette cred swag artisan
-                                        activated charcoal. PBR&B fanny pack pok pok gentrify truffaut kitsch helvetica jean
-                                        shorts edison bulb poutine next level humblebrag la croix adaptogen. <br><br>Hashtag
-                                        poke literally locavore, beard marfa kogi bruh artisan succulents seitan tonx
-                                        waistcoat chambray taxidermy. Same cred meggings 3 wolf moon lomo irony cray hell of
-                                        bitters asymmetrical gluten-free art party raw denim chillwave tousled try-hard
-                                        succulents street art.</p>
+
+
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="more-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10  offset-lg-1">
+                        <div class="tabs-content">
+                            <div class="row">
+                                <div class="nav-wrapper ">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+                                                data-bs-target="#description" type="button" role="tab"
+                                                aria-controls="description" aria-selected="true">Description</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab"
+                                                data-bs-target="#reviews" type="button" role="tab"
+                                                aria-controls="reviews" aria-selected="false">Reviews (3)</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="description" role="tabpanel"
+                                        aria-labelledby="description-tab">
+                                        <p>You can search for more templates on Google Search using keywords such as
+                                            "templatemo
+                                            digital marketing", "templatemo one-page", "templatemo gallery", etc. Please
+                                            tell
+                                            your friends about our website. If you need a variety of HTML templates, you may
+                                            visit Tooplate and Too CSS websites.</p>
+                                        <br>
+                                        <p>Coloring book air plant shabby chic, crucifix normcore raclette cred swag artisan
+                                            activated charcoal. PBR&B fanny pack pok pok gentrify truffaut kitsch helvetica
+                                            jean
+                                            shorts edison bulb poutine next level humblebrag la croix adaptogen. Hashtag
+                                            poke
+                                            literally locavore, beard marfa kogi bruh artisan succulents seitan tonx
+                                            waistcoat
+                                            chambray taxidermy. Same cred meggings 3 wolf moon lomo irony cray hell of
+                                            bitters
+                                            asymmetrical gluten-free art party raw denim chillwave tousled try-hard
+                                            succulents
+                                            street art.</p>
+                                    </div>
+                                    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                                        <p>Coloring book air plant shabby chic, crucifix normcore raclette cred swag artisan
+                                            activated charcoal. PBR&B fanny pack pok pok gentrify truffaut kitsch helvetica
+                                            jean
+                                            shorts edison bulb poutine next level humblebrag la croix adaptogen.
+                                            <br><br>Hashtag
+                                            poke literally locavore, beard marfa kogi bruh artisan succulents seitan tonx
+                                            waistcoat chambray taxidermy. Same cred meggings 3 wolf moon lomo irony cray
+                                            hell of
+                                            bitters asymmetrical gluten-free art party raw denim chillwave tousled try-hard
+                                            succulents street art.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -97,59 +147,208 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="section categories related-games">
-        <div class="container">
+        <div class="related-games">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-heading">
-                        <h6>Action</h6>
-                        <h2>Related Games</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="main-button">
-                        <a href="shop.html">View All</a>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h4>Action</h4>
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/categories-01.jpg') }}" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h4>Action</h4>
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/categories-05.jpg') }}" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h4>Action</h4>
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/categories-03.jpg') }}" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h4>Action</h4>
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/categories-04.jpg') }}" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h4>Action</h4>
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="{{ asset('storage/images/categories-05.jpg') }}" alt=""></a>
+                <!-- Navbar bên trái -->
+
+                <!-- Nội dung chính -->
+                <div class="col-lg-12">
+                    <!-- Phần Trending -->
+                    <!-- Phần Most Played -->
+                    <div class="section most-played">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="section-heading">
+                                        <h2>Related Games</h2>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="main-button">
+                                        <a href="{{ route('shop') }}">View All</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-01.jpg') }}" alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-02.jpg') }}"
+                                                    alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-03.jpg') }}"
+                                                    alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-04.jpg') }}"
+                                                    alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-05.jpg') }}"
+                                                    alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-06.jpg') }}"
+                                                    alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-01.jpg') }}" alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-02.jpg') }}"
+                                                    alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-03.jpg') }}"
+                                                    alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-04.jpg') }}"
+                                                    alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-05.jpg') }}"
+                                                    alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="{{ route('details') }}"><img
+                                                    src="{{ asset('storage/images/top-game-06.jpg') }}"
+                                                    alt=""></a>
+                                            <div class="overlay">
+                                                <div class="info">
+                                                    <h4>The dead of php</h4>
+                                                    <span class="rating">8.1 ★</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
