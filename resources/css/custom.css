@@ -1431,8 +1431,8 @@ Single Page Style
 
 .tabs-content {
   background-color: #f7f7f7;
-  border-radius: 25px;
-  padding: 60px;
+  /* border-radius: 25px; */
+  /* padding: 60px; */
   transition: all 0.3s;
 }
 
