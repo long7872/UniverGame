@@ -1,7 +1,7 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{ route('index') }}">
       <img src="{{ asset("storage/images/logo-uni.png")}}" alt="Logo" width="110"
         height="50" class="d-inline-block align-top" />
   
