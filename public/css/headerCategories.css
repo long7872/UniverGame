@@ -28,80 +28,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     background: linear-gradient(45deg, #ff66b2, #b86bff);
     /* Gradient màu sắc đẹp mắt */
-}
-
-/* Các màu sắc cho mỗi nút */
-.tag:nth-child(1) {
-    background: linear-gradient(45deg, #ff66b2, #ff3385);
-    /* Gradient cho Girls */
-}
-
-.tag:nth-child(2) {
-    background: linear-gradient(45deg, #b86bff, #7f5fff);
-    /* Gradient cho Fighting */
-}
-
-.tag:nth-child(3) {
-    background: linear-gradient(45deg, #00b8d4, #008e9b);
-    /* Gradient cho Driving */
-}
-
-.tag:nth-child(4) {
-    background: linear-gradient(45deg, #ff7f50, #ff502d);
-    /* Gradient cho Shooting */
-}
-
-.tag:nth-child(5) {
-    background: linear-gradient(45deg, #4caf50, #388e3c);
-    /* Gradient cho Strategy & RPG */
-}
-
-.tag:nth-child(6) {
-    background: linear-gradient(45deg, #f44336, #c0392b);
-    /* Gradient cho Action & Adventure */
-}
-
-.tag:nth-child(7) {
-    background: linear-gradient(45deg, #ff9800, #e65100);
-    /* Gradient cho 2 player */
-}
-
-.tag:nth-child(8) {
-    background: linear-gradient(45deg, #00bcd4, #0288d1);
-    /* Gradient cho Gun */
-}
-
-.tag:nth-child(9) {
-    background: linear-gradient(45deg, #ffeb3b, #fbc02d);
-    /* Gradient cho Car */
-}
-
-.tag:nth-child(10) {
-    background: linear-gradient(45deg, #ff69b4, #ff4081);
-    /* Gradient cho Dress Up */
-}
-
-.tag:nth-child(11) {
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-    /* Gradient cho Scary */
-}
-
-.tag:nth-child(12) {
-    background: linear-gradient(45deg, #9b59b6, #e74c3c);
-    /* Gradient cho Arcade */
-}
-
-.tag:nth-child(13) {
-    background: linear-gradient(45deg, #9c27b0, #7b1fa2);
-    /* Gradient cho Cooking */
-}
-
-.tag:nth-child(14) {
-    background: linear-gradient(45deg, #8bc34a, #689f38);
-    /* Gradient cho Army */
 }
 
 
@@ -234,3 +163,155 @@
   }
   /* Kết */
 
+
+
+  
+/* Các màu sắc cho mỗi nút */
+.tag:nth-child(1) {
+    background: linear-gradient(45deg, #ff66b2, #ff3385);
+    /* Gradient cho Girls */
+}
+
+.tag:nth-child(2) {
+    background: linear-gradient(45deg, #b86bff, #7f5fff);
+    /* Gradient cho Fighting */
+}
+
+.tag:nth-child(3) {
+    background: linear-gradient(45deg, #00b8d4, #008e9b);
+    /* Gradient cho Driving */
+}
+
+.tag:nth-child(4) {
+    background: linear-gradient(45deg, #ff7f50, #ff502d);
+    /* Gradient cho Shooting */
+}
+
+.tag:nth-child(5) {
+    background: linear-gradient(45deg, #4caf50, #388e3c);
+    /* Gradient cho Strategy & RPG */
+}
+
+.tag:nth-child(6) {
+    background: linear-gradient(45deg, #f44336, #c0392b);
+    /* Gradient cho Action & Adventure */
+}
+
+.tag:nth-child(7) {
+    background: linear-gradient(45deg, #ff9800, #e65100);
+    /* Gradient cho 2 player */
+}
+
+.tag:nth-child(8) {
+    background: linear-gradient(45deg, #00bcd4, #0288d1);
+    /* Gradient cho Gun */
+}
+
+.tag:nth-child(9) {
+    background: linear-gradient(45deg, #ffeb3b, #fbc02d);
+    /* Gradient cho Car */
+}
+
+.tag:nth-child(10) {
+    background: linear-gradient(45deg, #ff69b4, #ff4081);
+    /* Gradient cho Dress Up */
+}
+
+.tag:nth-child(11) {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    /* Gradient cho Scary */
+}
+
+.tag:nth-child(12) {
+    background: linear-gradient(45deg, #9b59b6, #e74c3c);
+    /* Gradient cho Arcade */
+}
+
+.tag:nth-child(13) {
+    background: linear-gradient(45deg, #9c27b0, #7b1fa2);
+    /* Gradient cho Cooking */
+}
+
+.tag:nth-child(14) {
+    background: linear-gradient(45deg, #8bc34a, #689f38);
+    /* Gradient cho Army */
+}
+.tag:nth-child(15) {
+    background: linear-gradient(45deg, #673ab7, #512da8);
+    /* Gradient for Fantasy */
+}
+
+.tag:nth-child(16) {
+    background: linear-gradient(45deg, #f57c00, #ef6c00);
+    /* Gradient for Racing */
+}
+
+.tag:nth-child(17) {
+    background: linear-gradient(45deg, #ffeb3b, #cddc39);
+    /* Gradient for Puzzle */
+}
+
+.tag:nth-child(18) {
+    background: linear-gradient(45deg, #2196f3, #1e88e5);
+    /* Gradient for Multiplayer */
+}
+
+.tag:nth-child(19) {
+    background: linear-gradient(45deg, #8e24aa, #d500f9);
+    /* Gradient for Party */
+}
+
+.tag:nth-child(20) {
+    background: linear-gradient(45deg, #795548, #5d4037);
+    /* Gradient for Horror */
+}
+
+.tag:nth-child(21) {
+    background: linear-gradient(45deg, #607d8b, #455a64);
+    /* Gradient for Mystery */
+}
+
+.tag:nth-child(22) {
+    background: linear-gradient(45deg, #4caf50, #66bb6a);
+    /* Gradient for Simulation */
+}
+
+.tag:nth-child(23) {
+    background: linear-gradient(45deg, #3f51b5, #283593);
+    /* Gradient for Sci-Fi */
+}
+
+.tag:nth-child(24) {
+    background: linear-gradient(45deg, #9e9e9e, #616161);
+    /* Gradient for Casual */
+}
+
+.tag:nth-child(25) {
+    background: linear-gradient(45deg, #ff5722, #e64a19);
+    /* Gradient for Tower Defense */
+}
+
+.tag:nth-child(26) {
+    background: linear-gradient(45deg, #607d8b, #455a64);
+    /* Gradient for Strategy */
+}
+
+.tag:nth-child(27) {
+    background: linear-gradient(45deg, #8bc34a, #388e3c);
+    /* Gradient for Farm */
+}
+
+.tag:nth-child(28) {
+    background: linear-gradient(45deg, #f44336, #e53935);
+    /* Gradient for Battle Royale */
+}
+
+.tag:nth-child(29) {
+    background: linear-gradient(45deg, #ff9800, #fb8c00);
+    /* Gradient for Sports */
+}
+
+.tag:nth-child(30) {
+    background: linear-gradient(45deg, #00c853, #00e676);
+    /* Gradient for Rhythm */
+}

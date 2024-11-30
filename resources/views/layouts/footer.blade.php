@@ -9,23 +9,23 @@
         <!-- Left -->
 
         <!-- Right -->
-        <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-start">
-            <a href="" class="me-4 text-reset icon">
+        <div class="d-flex flex-sm-row justify-content-center justify-content-sm-start">
+            <a href="" class="ms-2 me-2 text-reset icon">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="" class="me-4 text-reset icon">
+            <a href="" class="ms-2 me-2 text-reset icon">
                 <i class="fab fa-twitter"></i>
             </a>
-            <a href="" class="me-4 text-reset icon">
+            <a href="" class="ms-2 me-2 text-reset icon">
                 <i class="fab fa-google"></i>
             </a>
-            <a href="" class="me-4 text-reset icon">
+            <a href="" class="ms-2 me-2 text-reset icon">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="" class="me-4 text-reset icon">
+            <a href="" class="ms-2 me-2 text-reset icon">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="" class="me-4 text-reset icon">
+            <a href="" class="ms-2 me-2 text-reset icon">
                 <i class="fab fa-github"></i>
             </a>
         </div>
@@ -114,10 +114,14 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <div class="footer_copyright">
+        <div class="d-flex justify-content-center align-items-center">
+            <span class="text-center">© 2021 Copyright: </span>
+            <a class="text-reset fw-bold ms-2" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
     </div>
     <!-- Copyright -->
+
+
 </footer>
 <!-- Footer -->

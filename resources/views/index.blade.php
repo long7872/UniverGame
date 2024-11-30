@@ -23,94 +23,31 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="main-button">
-                                    <a href="{{ route('shop') }}">View All</a>
+                                    <a class="tag" data-category="most" href="javascript:void(0);">View All</a>
                                 </div>
                             </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-01.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-02.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-03.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-04.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-05.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-06.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
+                            {{-- Loop foreach 6 item: most played game --}}
+                            @foreach ($mostPlayedGame as $game)
+                                <div class="col-lg-2 col-md-6 col-sm-6">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <img src="{{ asset('storage/gameImages/' . $game->imagePath) }}"
+                                                alt="{{ $game->imagePath }}">
+                                            <a href="{{ route('play', ['id' => $game->game_id]) }}">
+                                                <div class="overlay">
+                                                    <div class="info">
+                                                        <h4>{{ $game->name }}</h4>
+                                                        <span class="rating">{{ $game->rating }} ★</span>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
+
+
                         </div>
                     </div>
                 </div>
@@ -125,20 +62,11 @@
                 <!-- Heading trên phần tìm kiếm -->
                 <!-- Phần các tag -->
                 <div class="tag-container">
-                    <button class="tag">For Girls</button>
-                    <button class="tag">Fighting</button>
-                    <button class="tag">Driving</button>
-                    <button class="tag">Shooting</button>
-                    <button class="tag">Strategy & RPG</button>
-                    <button class="tag">Action & Adventure</button>
-                    <button class="tag">2 player</button>
-                    <button class="tag">Gun</button>
-                    <button class="tag">Car</button>
-                    <button class="tag">Dress Up</button>
-                    <button class="tag">Scary</button>
-                    <button class="tag">Arcade</button>
-                    <button class="tag">Cooking</button>
-                    <button class="tag">Football</button>
+
+                    @foreach ($categories as $category)
+                        <button class="tag" data-category="{{ $category->category_id }}">{{ $category->name }}</button>
+                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -152,381 +80,55 @@
             <div class="col-lg-8 offset-lg-2">
                 <div class="section most-played mgBottom">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-01.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
-
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-02.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
+                        <div id="game-list">
+                            @foreach ($newests->chunk(6) as $row)
+                                <div class="row">
+                                    @foreach ($row as $game)
+                                        <div class="col-lg-2 col-md-6 col-sm-6">
+                                            <div class="item">
+                                                <div class="thumb">
+                                                    <img src="{{ asset('storage/gameImages/' . $game->imagePath) }}"
+                                                        alt="{{ $game->imagePath }}">
+                                                    <a href="{{ route('play', ['id' => $game->game_id]) }}">
+                                                        <div class="overlay">
+                                                            <div class="info">
+                                                                <h4>{{ $game->name }}</h4>
+                                                                <span class="rating">{{ $game->rating }} ★</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-03.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-04.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-05.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-06.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-                        <div class="row">
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-01.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
 
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-02.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-03.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-04.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-05.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-06.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-01.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-02.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-03.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-04.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-05.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-06.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-01.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-02.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-03.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-04.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-05.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <div class="item">
-                                    <div class="thumb">
-                                        <a href="{{ route('details') }}"><img
-                                                src="{{ asset('storage/images/top-game-06.jpg') }}" alt=""></a>
-                                        <div class="overlay">
-                                            <div class="info">
-                                                <h4>The dead of php</h4>
-                                                <span class="rating">8.1 ★</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
                     </div>
                 </div>
 
             </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="pagination">
-                        <li><a href="#"> &lt; </a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a class="is_active" href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"> &gt; </a></li>
-                    </ul>
+            <div class="section trending">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="pagination">
+                                <li><a data-page="0" class="disabled"> &lt; </a></li>
+                                <li><a data-page="1" class="is_active">1</a></li>
+                                <li><a data-page="2">2</a></li>
+                                <li><a data-page="3">3</a></li>
+                                <li><a data-page="2"> &gt; </a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
-        
+
     </div>
 @endsection

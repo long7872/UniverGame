@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return redirect('/index');
 });
-Route::get('/index', function () {
-    return view('index');
-})->name('index');
+
+// Home page start
+Route::get('/index', [HomeController::class, 'index'])->name('index');
+
+// Route::get('/index/update', [HomeController::class, 'update']);
+
+Route::get('/play/{id}', [GameController::class, 'index'])->name('play');
+
+Route::get('/games/filter/{category}', [GameController::class, 'filterByCategory'])->name('games.filter');
+Route::get('/games/pagination/{category}/{page}', [GameController::class, 'paging'])->name('games.page');
+
+// Home page end
+
 Route::get('/shop', function () {
     return view('shop');
 })->name('shop');

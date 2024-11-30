@@ -6,12 +6,12 @@
         height="50" class="d-inline-block align-top" />
   
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <button class="navbar-toggler me-3" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto pl-3 pr-3">
         <li class="nav-item">
           <a class="nav-link" href="index.html">HOME</a>
         </li>
@@ -31,7 +31,7 @@
         <!-- Nút Đăng nhập/Đăng xuất -->
         <li class="nav-item">
           <a class="nav-link" href="Login/Login.html">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-user"></i> Login
           </a>
         </li>
 

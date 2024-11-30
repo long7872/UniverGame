@@ -9,6 +9,14 @@ class Game extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'game_id';
+    
+    protected $fillable = [
+        'name',
+        'description',
+        'imagePath',
+    ];
+
     public function user_games() {
         return $this->hasMany(User_Game::class);
     }
