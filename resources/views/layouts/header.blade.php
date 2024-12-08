@@ -1,6 +1,6 @@
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light Nav-header">
     <a class="navbar-brand" href="{{ route('index') }}">
       <img src="{{ asset("storage/images/logo-uni.png")}}" alt="Logo" width="110"
         height="50" class="d-inline-block align-top" />
@@ -30,7 +30,7 @@
 
         <!-- Nút Đăng nhập/Đăng xuất -->
         <li class="nav-item">
-          <a class="nav-link" href="Login/Login.html">
+          <a class="nav-link" href="{{ route('login') }}">
             <i class="fas fa-user"></i> Login
           </a>
         </li>
