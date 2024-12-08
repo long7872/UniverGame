@@ -17,15 +17,29 @@ class GameController extends Controller
             $game->increment('total_plays'); // Tăng total_plays lên 1 và tự động lưu lại
         }
 
-        $query = Game::where('category_id', $game->category_id)->take(12);
+        $query = Game::where('game_id', '!=', $game->game_id)
+            ->where('category_id', $game->category_id)
+            ->take(12); // Cùng thể loại
         $relatedGames = $query->orderBy('total_plays', 'desc')->get();
+
         $controlTypes = $game->controls()
             ->with('controlType')
             ->get()
             ->map(function ($control) {
                 return $control->controlType; // Trích xuất controlType từ mỗi control
             });
-        return view('games', compact('game', 'relatedGames', 'controlTypes'));
+
+        // Lấy danh sách controlType ID
+        $controlTypeIds = $controlTypes->pluck('control_type_id')->toArray();
+        // Truy vấn các game có chung controlType
+        $sameControlGames = Game::where('game_id', '!=', $game->game_id) // Đặt điều kiện loại bỏ game hiện tại trước
+            ->whereHas('controls', function ($query) use ($controlTypeIds) {
+                $query->whereIn('control_type_id', $controlTypeIds);
+            })
+            ->orderBy('total_plays', 'desc')
+            ->take(12) // Giới hạn số lượng kết quả
+            ->get();
+        return view('games', compact('game', 'relatedGames', 'controlTypes', 'sameControlGames'));
     }
 
     public function filterByCategory($category_id)
