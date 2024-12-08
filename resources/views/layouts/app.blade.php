@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('css/mostPlayed.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/framegame.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <!-- Search -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -29,6 +30,7 @@
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <style>
@@ -81,8 +83,19 @@
     <script src="{{ asset('js/filterCategory.js') }}"></script>
     <script src="{{ asset('js/pagination.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="{{asset('js/likeDislikeButton.js')}}"></script>
+    <script src="{{ asset('js/likeDislikeButton.js') }}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Kiểm tra nếu URL chứa 'login' hoặc 'signup' thì ẩn footer
+        if (window.location.pathname.includes('login') || window.location.pathname.includes('signup')) {
+            document.querySelector('.footer-Hidden').style.display = 'none';
+            document.querySelector('.Nav-header').style.display = 'none';
+        } else {
+            // Ngược lại, hiển thị footer
+            document.querySelector('.footer-Hidden').style.display = 'block';
+            document.querySelector('.Nav-header').style.display = 'block';
+        }
+    </script>
 
 </body>
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,3 +42,9 @@ Route::get('/games/update', [GameController::class, 'update']);
 Route::get('/games', function () {
     return view('games');
 })->name('games');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+
