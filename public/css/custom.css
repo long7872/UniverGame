@@ -110,7 +110,7 @@ p {
 }
 
 img {
- /* // width: 100%; */
+  /* width: 100%; */
   overflow: hidden;
 }
 
@@ -704,7 +704,7 @@ Services Style
 Trending Style
 --------------------------------------------- 
 */
-.trending .main-button {
+/* .trending .main-button {
   margin-top: 32px;
   text-align: right;
 }
@@ -783,7 +783,7 @@ Trending Style
 
 .trending .item:hover .down-content a {
   background-color: #0071f8;
-}
+} */
 
 
 /* 
@@ -1108,6 +1108,7 @@ Shop Page Style
 .trending ul.pagination li {
   display: inline-block;
   margin: 0px 5px;
+  
 }
 
 .trending ul.pagination li a {
@@ -1124,10 +1125,17 @@ Shop Page Style
   transition: all .3s;
 }
 
-.trending ul.pagination li a:hover,
-.trending ul.pagination li a.is_active {
-  background-color: #0071f8;
+.trending ul.pagination li a:hover {
+  background-color: rgb(108, 104, 104);
   color: #fff;
+}
+.trending ul.pagination li a.is_active {
+  background-color: #0071f8 !important;
+  color: #fff;
+}
+.trending ul.pagination li a.disabled {
+  background-color: rgb(214, 209, 209);
+  color: #1e1e1e !important;
 }
 
 

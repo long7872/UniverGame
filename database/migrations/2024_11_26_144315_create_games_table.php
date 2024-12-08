@@ -15,11 +15,12 @@ return new class extends Migration
             $table->increments("game_id");
             $table->string("name");
             $table->string("imagePath");
+            $table->string("gamePath");
             $table->unsignedInteger("category_id")->nullable();
-            $table->unsignedInteger("total_plays");
-            $table->unsignedInteger("total_likes");
-            $table->unsignedInteger("total_dislikes");
-            $table->float("rating",2,1);
+            $table->unsignedInteger("total_plays")->default(0);
+            $table->unsignedInteger("total_likes")->default(0);
+            $table->unsignedInteger("total_dislikes")->default(0);
+            $table->float("rating",2,1)->default(0);
             $table->string("descrip");
             $table->timestamps();
 

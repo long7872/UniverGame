@@ -6,14 +6,10 @@ footer{
 }
 
 footer a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
     text-align: center;
     line-height: 40px;
     border-radius: 50%;
     font-size: 20px;
-    /* Điều chỉnh kích thước icon */
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
@@ -99,5 +95,13 @@ footer .container p {
     color: #6c757d;
 }
 
+.footer_copyright {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    display: flex; /* Ensures Flexbox behavior */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    text-align: center; /* Aligns text inside inline elements */
+}
 
 
