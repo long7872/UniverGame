@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto pl-3 pr-3">
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('details') }}">HOME</a>
+          <a class="nav-link" href="{{ route('games') }}">HOME</a>
         </li>
 
         <li class="nav-item">

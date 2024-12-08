@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Game;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,12 +15,13 @@ class GameFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    protected $model = \App\Models\Game::class;
+    protected $model = Game::class;
     public function definition(): array
     {
         return [
             'name' => $this->faker->name(),
             'imagePath' => $this->faker->filePath(),
+            'gamePath' => $this->faker->filePath(),
             'descrip' => $this->faker->paragraph(),
             'created_at' => now(),
             'updated_at' => now(),

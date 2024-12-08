@@ -99,7 +99,8 @@ function renderPagination(currentPage, lastPage) {
     // Đảm bảo luôn hiển thị 3 trang
     if (currentPage === 1) {
         endPage = Math.min(lastPage, 3);
-    } else if (currentPage === lastPage) {
+    } else 
+    if (currentPage === lastPage) {
         startPage = Math.max(1, lastPage - 2);
     }
 

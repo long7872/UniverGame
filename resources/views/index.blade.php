@@ -23,7 +23,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="main-button">
-                                    <a class="tag" data-category="most" href="javascript:void(0);">View All</a>
+                                    <a class="tag" data-category="most">View All</a>
                                 </div>
                             </div>
 

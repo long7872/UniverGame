@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments("game_id");
             $table->string("name");
             $table->string("imagePath");
+            $table->string("gamePath");
             $table->unsignedInteger("category_id")->nullable();
             $table->unsignedInteger("total_plays")->default(0);
             $table->unsignedInteger("total_likes")->default(0);

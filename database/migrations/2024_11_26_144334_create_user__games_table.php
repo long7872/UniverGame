@@ -12,16 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user__games', function (Blueprint $table) {
+            $table->increments("user_game_id");
             $table->unsignedInteger("user_id");
             $table->unsignedInteger("game_id");
             $table->unsignedInteger("playtime")->default(0);
             $table->tinyInteger("like_dislike")->default(0);
+            $table->string("review");
             $table->boolean("bookmark")->default(false);
             $table->timestamps();
 
             $table->foreign("user_id")->references("user_id")->on("users")->onDelete("cascade");
             $table->foreign("game_id")->references("game_id")->on("games")->onDelete("cascade");
-            $table->primary(["user_id","game_id"]);
         });
     }
 

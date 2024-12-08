@@ -9,8 +9,14 @@ class Control extends Model
 {
     use HasFactory;
 
-    public function control_type() {
-        return $this->belongsTo(Control_Type::class);
+    protected $table = 'controls';
+
+    protected $primaryKey = 'control_id'; // Đặt cột khóa chính đúng
+    public $incrementing = true; // Nếu khóa chính là auto-increment
+    protected $keyType = 'int'; // Nếu khóa chính là kiểu số
+
+    public function controlType() {
+        return $this->belongsTo(Control_Type::class, 'control_type_id', 'control_type_id');
     }
 
     public function game() {

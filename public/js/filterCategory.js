@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         gameList.appendChild(row); // Thêm row vào danh sách game
                     }
+
+                    renderPagination(1,3);
                 })
                 .catch((error) => console.error("Error:", error));
         });

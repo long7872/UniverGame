@@ -23,21 +23,21 @@ Route::get('/', function () {
 // Home page start
 Route::get('/index', [HomeController::class, 'index'])->name('index');
 
-// Route::get('/index/update', [HomeController::class, 'update']);
-
 Route::get('/play/{id}', [GameController::class, 'index'])->name('play');
 
 Route::get('/games/filter/{category}', [GameController::class, 'filterByCategory'])->name('games.filter');
 Route::get('/games/pagination/{category}/{page}', [GameController::class, 'paging'])->name('games.page');
 
+Route::get('/games/update', [GameController::class, 'update']);
+
 // Home page end
 
-Route::get('/shop', function () {
-    return view('shop');
-})->name('shop');
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
-Route::get('/details', function () {
-    return view('product_details');
-})->name('details');
+// Route::get('/shop', function () {
+//     return view('shop');
+// })->name('shop');
+// Route::get('/contact', function () {
+//     return view('contact');
+// })->name('contact');
+Route::get('/games', function () {
+    return view('games');
+})->name('games');

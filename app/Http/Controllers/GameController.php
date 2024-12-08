@@ -4,10 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GameController extends Controller
 {
     //
+
+    public function index($game_id)
+    {
+        $game = Game::find($game_id);
+        if ($game) {
+            $game->increment('total_plays'); // Tăng total_plays lên 1 và tự động lưu lại
+        }
+
+        $query = Game::where('category_id', $game->category_id)->take(12);
+        $relatedGames = $query->orderBy('total_plays', 'desc')->get();
+        $controlTypes = $game->controls()
+            ->with('controlType')
+            ->get()
+            ->map(function ($control) {
+                return $control->controlType; // Trích xuất controlType từ mỗi control
+            });
+        return view('games', compact('game', 'relatedGames', 'controlTypes'));
+    }
+
     public function filterByCategory($category_id)
     {
         if ($category_id === '1') {
@@ -28,7 +48,7 @@ class GameController extends Controller
         if (!is_numeric($page) || $page <= 0) {
             return response()->json(['error' => 'Invalid page number'], 400);
         }
-    
+
         $perPage = 24; // Số item mỗi trang
 
         if ($category_id === '1') {
@@ -39,14 +59,27 @@ class GameController extends Controller
             $query = Game::orderBy('game_id', 'desc');
             $query->where('category_id', $category_id);
         }
-    
+
         $games = $query->paginate($perPage, ['*'], 'page', $page);
-    
+
         return response()->json([
             'data' => $games->items(),
             'current_page' => $games->currentPage(),
             'last_page' => $games->lastPage(),
             'total' => $games->total(),
         ]);
+    }
+
+    public function update()
+    {
+        $perPage = 24;
+        // Lấy tất cả các games
+        $games = Game::orderBy('game_id', 'desc')->paginate($perPage, ['*'], 'page', 3);
+
+        // Lặp qua từng game và cập nhật imagePath
+        foreach ($games as $index => $game) {
+            $imagePath = 'download (' . (($index + 12) % 24) . ').jpg'; // Tạo tên file ảnh
+            $game->update(['imagePath' => $imagePath]); // Cập nhật cột imagePath
+        }
     }
 }
