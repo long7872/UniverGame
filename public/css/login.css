@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
-body{
-  
-    /* background: #ececec; */
-}
+
 
 /*------------ Login container ------------*/
 
@@ -74,6 +71,6 @@ body{
 }
 
 #show-login-form-from-forgot:hover {
-    background-color: #ffdbdc; /* Màu nền khi hover */
+    background-color: #ffdbdc; 
     text-decoration: underline;
 }

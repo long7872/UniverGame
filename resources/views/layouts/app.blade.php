@@ -89,11 +89,11 @@
         // Kiểm tra nếu URL chứa 'login' hoặc 'signup' thì ẩn footer
         if (window.location.pathname.includes('login') || window.location.pathname.includes('signup')) {
             document.querySelector('.footer-Hidden').style.display = 'none';
-            document.querySelector('.Nav-header').style.display = 'none';
+             document.querySelector('.Nav-header').style.display = 'none';
         } else {
             // Ngược lại, hiển thị footer
             document.querySelector('.footer-Hidden').style.display = 'block';
-            document.querySelector('.Nav-header').style.display = 'block';
+             document.querySelector('.Nav-header').style.display = 'flex';
         }
     </script>
 
