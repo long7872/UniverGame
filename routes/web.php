@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -24,14 +25,41 @@ Route::get('/', function () {
 // Home page start
 Route::get('/index', [HomeController::class, 'index'])->name('index');
 
-Route::get('/play/{id}', [GameController::class, 'index'])->name('play');
 
-Route::get('/games/filter/{category}', [GameController::class, 'filterByCategory'])->name('games.filter');
-Route::get('/games/pagination/{category}/{page}', [GameController::class, 'paging'])->name('games.page');
+Route::prefix('games')->name('games.')->group(function () {
+    Route::get('/{id}', [GameController::class, 'index'])->name('play');
 
-Route::get('/games/update', [GameController::class, 'update']);
+    Route::get('/filter/{category}', [GameController::class, 'filterByCategory'])->name('filter');
+    Route::get('/pagination/{category}/{page}', [GameController::class, 'paging'])->name('page');
 
+    Route::get('/update', [GameController::class, 'update']);
+});
 // Home page end
+
+// Auth start
+Route::prefix('auth')->name('auth.')->group(function () {
+    Route::controller(AuthController::class)->group(function () {
+        Route::get('/login', 'login')->name('login');
+        Route::post('/login', 'loginPost')->name('login.post');
+        Route::post('/register', 'registerPost')->name('register.post');
+        Route::post('/logout', 'logout')->name('logout');
+        // GoogleAuth
+        Route::get('redirection/{provider}', 'authProviderRedirect')->name('redirection');
+        Route::get('{provider}/call-back', 'socialAuthenticate')->name('callback');
+    });
+});
+// Auth end
+
+// Privilege start
+// Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+//     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+//     // Các route admin khác
+// });
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
+// });
+// Privilege end
+
 
 // Route::get('/shop', function () {
 //     return view('shop');
@@ -43,8 +71,6 @@ Route::get('/games', function () {
     return view('games');
 })->name('games');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-
+// Route::get('/login', function () {
+//     return view('login');
+// })->name('login');

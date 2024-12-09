@@ -74,3 +74,9 @@
     background-color: #ffdbdc; 
     text-decoration: underline;
 }
+
+/* Alert */
+.alert {
+    cursor: pointer; /* Cho phép người dùng biết rằng họ có thể bấm vào */
+}
+

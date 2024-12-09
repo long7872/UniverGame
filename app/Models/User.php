@@ -12,6 +12,12 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = 'users';
+
+    protected $primaryKey = 'user_id';
+    public $incrementing = true; // Nếu khóa chính là auto-increment
+    protected $keyType = 'int'; // Nếu khóa chính là kiểu số
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +27,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'auth_provider',
+        'auth_provider_id',
     ];
 
     /**

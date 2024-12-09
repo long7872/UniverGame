@@ -30,7 +30,7 @@
 
         <!-- Nút Đăng nhập/Đăng xuất -->
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('login') }}">
+          <a class="nav-link" href="{{ route('auth.login') }}">
             <i class="fas fa-user"></i> Login
           </a>
         </li>

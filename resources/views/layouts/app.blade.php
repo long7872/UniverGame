@@ -96,6 +96,13 @@
              document.querySelector('.Nav-header').style.display = 'flex';
         }
     </script>
+    <script>
+        if (window.location.hash === '#_=_') {
+            history.replaceState
+                ? history.replaceState(null, null, window.location.href.split('#')[0])
+                : window.location.hash = '';
+        }
+    </script>
 
 </body>
 
