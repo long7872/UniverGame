@@ -3,26 +3,40 @@ $(document).on("click", ".pagination a", function (e) {
     e.preventDefault(); // Prevent the default behavior for all clicks
 
     // Check if the clicked link has the 'is_active' class
-    // if ($(this).hasClass("is_active")) {
-    //     return; // Exit the function to stop further processing
-    // }
-
-    const page = $(this).data("page");
-
+    if ($(this).hasClass("is_active")) {
+        return; // Exit the function to stop further processing
+    }
     // Check if the page is less than 1, and prevent the action if true
+    const page = $(this).data("page");
     if (page < 1) {
         return; // Do nothing if the page is invalid (less than 1)
     }
     // console.log(1);
     // Call the loadGames function if the page is valid
-    loadGames(page);
+
+    const context = $(".section.trending").data("context");
+    
+    if (context === "homepage") {
+        loadGames("category",currentCategoryId, page);
+    } else if (context === "recentpage") {
+        const user_id = window.Laravel.userId;
+        loadGames("user", user_id, page);
+    } else if (context === "bookmarkpage") {
+        const user_id = window.Laravel.userId;
+        loadGames("bookmark", user_id, page);
+    }
+    else{
+        console.error('Invalid context or missing parameters.');
+    }
+    // loadGames(currentCategoryId, page);
 });
 
-function loadGames(page) {
+function loadGames(type, id, page) {
     // Gửi AJAX request đến server
-    console.log('currentCategoryId:', currentCategoryId);
+    console.log('type:', type);
+    console.log('currentId:', id);
     console.log('page:', page);
-    fetch(`/games/pagination/${currentCategoryId}/${page}`)
+    fetch(`/games/pagination/${type}/${id}/${page}`)
     .then((response) => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -62,7 +76,7 @@ function renderGameList(games) {
                     <div class="item">
                         <div class="thumb">
                             <img src="/storage/gameImages/${game.imagePath}" alt="${game.imagePath}">
-                            <a href="/play/${game.game_id}">
+                            <a href="/games/${game.game_id}">
                                 <div class="overlay">
                                     <div class="info">
                                         <h4>${game.name}</h4>
@@ -84,6 +98,7 @@ function renderGameList(games) {
 
 function renderPagination(currentPage, lastPage) {
     let paginationHtml = "";
+    paginationHtml += `<li><p data-page="{{ Auth::user()->user_id ? Auth::user()->user_id : "" }}" class="disabled" hidden></p></li>`;
 
     // Nút trang trước
     if (currentPage > 1) {
@@ -103,7 +118,7 @@ function renderPagination(currentPage, lastPage) {
     if (currentPage === lastPage) {
         startPage = Math.max(1, lastPage - 2);
     }
-
+    
     for (let i = startPage; i <= endPage; i++) {
         paginationHtml += `
             <li>

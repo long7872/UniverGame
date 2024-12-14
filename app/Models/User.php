@@ -24,11 +24,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'username',
         'name',
         'email',
         'password',
+        'gender',
         'auth_provider',
         'auth_provider_id',
+        'dateOfBirth',
+        'language',
     ];
 
     /**
@@ -53,6 +57,11 @@ class User extends Authenticatable
 
     public function user_games() {
         return $this->hasMany(User_Game::class);
+    }
+
+    public function games()
+    {
+        return $this->belongsToMany(Game::class, 'user__games', 'user_id', 'game_id');
     }
 
 }

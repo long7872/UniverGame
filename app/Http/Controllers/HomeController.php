@@ -20,7 +20,7 @@ class HomeController extends Controller
             ->limit(15) // Giới hạn 15 mục
             ->get();
         $newests = Game::orderBy('game_id', 'desc')->take(24)->get();
-        return view('index', compact('mostPlayedGame', 'categories', 'newests'));
+        return view('main.index', compact('mostPlayedGame', 'categories', 'newests'));
     }
 
 }

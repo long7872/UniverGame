@@ -18,7 +18,7 @@
                 <div class="row">
                     <!-- Game Embed Area -->
                     <div class="col-lg-10 game-frame offset-lg-1">
-                        <object data="{{ asset('storage/game/Webgame_game01/index.html') }}" class="game-object"
+                        <object data="{{ asset('storage/game/'. $game->gamePath) }}" class="game-object"
                             allow="fullscreen" allowfullscreen>
                             <!-- Nội dung dự phòng nếu không thể tải trang trò chơi -->
                             <p>The game failed to download. Please try again later.</p>

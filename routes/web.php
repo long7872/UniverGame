@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,7 +31,7 @@ Route::prefix('games')->name('games.')->group(function () {
     Route::get('/{id}', [GameController::class, 'index'])->name('play');
 
     Route::get('/filter/{category}', [GameController::class, 'filterByCategory'])->name('filter');
-    Route::get('/pagination/{category}/{page}', [GameController::class, 'paging'])->name('page');
+    Route::get('/pagination/{type}/{id}/{page}', [GameController::class, 'paging'])->name('page');
 
     Route::get('/update', [GameController::class, 'update']);
 });
@@ -43,9 +44,20 @@ Route::prefix('auth')->name('auth.')->group(function () {
         Route::post('/login', 'loginPost')->name('login.post');
         Route::post('/register', 'registerPost')->name('register.post');
         Route::post('/logout', 'logout')->name('logout');
-        // GoogleAuth
+        // Socialite Auth
         Route::get('redirection/{provider}', 'authProviderRedirect')->name('redirection');
         Route::get('{provider}/call-back', 'socialAuthenticate')->name('callback');
+    });
+});
+
+Route::prefix('user')->name('user.')->group(function() {
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/profile/{id}', [UserController::class, 'index'])->name('profile');
+        Route::put('/profile/{id}/set-password', [UserController::class, 'setPassword'])->name('set-password');
+        Route::get('/profile/edit/{id}', [UserController::class, 'edit'])->name('profile.edit');
+        Route::put('/update/{id}', [UserController::class, 'update'])->name('profile.update');
+        Route::get('/recent/{id}', [UserController::class, 'showRecentGame'])->name('recent');
+        Route::get('/bookmark/{id}', [UserController::class, 'showBookmarkGame'])->name('bookmark');
     });
 });
 // Auth end

@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     <div class="item">
                                         <div class="thumb">
                                             <img src="/storage/gameImages/${game.imagePath}" alt="${game.imagePath}">
-                                            <a href="/play/${game.game_id}">
+                                            <a href="/games/${game.game_id}">
                                                 <div class="overlay">
                                                     <div class="info">
                                                         <h4>${game.name}</h4>

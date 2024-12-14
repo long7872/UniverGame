@@ -17,72 +17,19 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="section-heading">
-                                    <h6>TOP GAMES</h6>
-                                    <h2>Most Played</h2>
+                                    {{-- <h6>TOP GAMES</h6> --}}
+                                    <h2>Your Game History</h2>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="main-button">
-                                    <a class="tag" data-category="most">View All</a>
+                                    <a class="tag" data-category="most" hidden>View All</a>
                                 </div>
                             </div>
 
-                            {{-- Loop foreach 6 item: most played game --}}
-                            @foreach ($mostPlayedGame as $game)
-                                <div class="col-lg-2 col-md-6 col-sm-6">
-                                    <div class="item">
-                                        <div class="thumb">
-                                            <img src="{{ asset('storage/gameImages/' . $game->imagePath) }}"
-                                                alt="{{ $game->imagePath }}">
-                                            <a href="{{ route('games.play', ['id' => $game->game_id]) }}">
-                                                <div class="overlay">
-                                                    <div class="info">
-                                                        <h4>{{ $game->name }}</h4>
-                                                        <span class="rating">{{ $game->rating }} ★</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-
-
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- section game hahahaha --}}
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Nội dung chính -->
-            <div class="col-lg-8 offset-lg-2">
-                <!-- Heading trên phần tìm kiếm -->
-                <!-- Phần các tag -->
-                <div class="tag-container">
-
-                    @foreach ($categories as $category)
-                        <button class="tag" data-category="{{ $category->category_id }}">{{ $category->name }}</button>
-                    @endforeach
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    {{-- trang game heheheheheheh --}}
-
-    <div class="trending container-fluid">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <div class="section most-played mgBottom">
-                    <div class="container">
-
                         <div id="game-list">
-                            @foreach ($newests->chunk(6) as $row)
+                            @foreach ($games->chunk(6) as $row)
                                 <div class="row">
                                     @foreach ($row as $game)
                                         <div class="col-lg-2 col-md-6 col-sm-6">
@@ -105,14 +52,10 @@
                                 </div>
                             @endforeach
                         </div>
-
-
                     </div>
                 </div>
-
             </div>
-
-            <div class="section trending">
+            <div class="section trending" data-context="recentpage">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -126,9 +69,13 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                    // Truyền thông tin người dùng vào biến toàn cục
+                    window.Laravel = {
+                        userId: "{{ Auth::user()->user_id ?? '' }}"
+                    };
+                </script>
             </div>
-
         </div>
-
     </div>
 @endsection
