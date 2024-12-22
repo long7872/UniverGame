@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('auth_provider_id')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('name')->nullable();
-            $table->string('imagePath')->nullable();
+            $table->string('name')->default('[None]')->nullable();
+            $table->string('imagePath')->default('defaultuser.png')->nullable();
             $table->tinyInteger('gender')->nullable();
             $table->date('dateOfBirth')->nullable();
             $table->string('language')->nullable();

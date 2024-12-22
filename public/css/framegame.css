@@ -212,7 +212,7 @@
         margin-right: 5px; /* Điều chỉnh khoảng cách cho màn hình nhỏ */
     }
     .dropdown-btn {
-        margin-top: 10px;
+        /* margin-top: 10px; */
     }
     .game-frame object{
         height: 500px;

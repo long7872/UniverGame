@@ -28,6 +28,24 @@ class UserController extends Controller
 
         return redirect()->route('user.profile', ['id' => $user->user_id])->with('success', 'Password has been set successfully.');
     }
+    
+    public function uploadImage(Request $request, $user_id) {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+    
+        $user = User::findOrFail($user_id);;
+        $imageName = time() . '.' . $request->image->extension();
+    
+        // Lưu ảnh vào thư mục public/storage/images
+        $request->image->move(public_path('storage/images'), $imageName);
+    
+        // Cập nhật đường dẫn ảnh trong database
+        $user->imagePath = $imageName;
+        $user->save();
+    
+        return redirect()->back()->with('success', 'Image uploaded successfully!');
+    }
 
     public function edit($user_id)
     {

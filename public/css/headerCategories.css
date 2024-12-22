@@ -97,9 +97,9 @@
     align-items: center;
   }
   
-  .form-control {
+  /* .form-control {
     width: 200px;
-  }
+  } */
   
   .navbar-nav .nav-item {
     margin-right: 25px; /* Khoảng cách giữa các mục */

@@ -130,3 +130,33 @@
   color: #ffd700;
   /* Màu vàng cho sao */
 }
+
+.bookmark-btn {
+  position: absolute;
+  right: 10px;
+  top: 60%;
+  /* background-color: #4CAF50; */
+  padding: 8px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-left: 20px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.bookmark-btn.unactive {
+  background-color: #e2746f;
+  color: black;
+}
+.bookmark-btn.unactive:hover {
+  /* background-color: #45a049; */
+  background-color: #dd524b;
+}
+.bookmark-btn.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.bookmark-btn.active:hover {
+  background-color: #45a049;
+}

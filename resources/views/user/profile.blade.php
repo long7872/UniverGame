@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="{{ $user->imagePath }}" alt="Admin" class="rounded-circle" width="150">
+                                <img src="{{ Auth::user()->auth_provider!=null ? Auth::user()->imagePath : asset('storage/images/'.Auth::user()->imagePath) }}" alt="Admin" class="rounded-circle" width="150">
                                 <div class="mt-3">
                                     <h4>{{ $user->name }}</h4>
                                 </div>

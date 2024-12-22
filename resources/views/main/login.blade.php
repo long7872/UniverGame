@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <!----------------------- Main Container -------------------------->
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <!----------------------- Login Container -------------------------->
@@ -26,22 +25,23 @@
                         <h2>Welcome</h2>
                         <p>We are happy to have you back.</p>
                     </div>
-
+                    <div>
+                        @if ($errors->has('text'))
+                            <span class="text-danger">{{ $errors->first('text') }}</span>
+                        @endif
+                        @if ($errors->has('password'))
+                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                        @endif
+                    </div>
                     <form action="{{ route('auth.login.post') }}" method="post">
                         @csrf
                         <div class="input-group mb-3">
                             <input type="text" name="text" class="form-control form-control-lg bg-light fs-6"
                                 placeholder="Email address or Username" required autofocus>
-                            @if ($errors->has('text'))
-                                <span class="text-danger">{{ $errors->first('text') }}</span>
-                            @endif
                         </div>
                         <div class="input-group mb-1">
                             <input type="password" name="password" class="form-control form-control-lg bg-light fs-6"
                                 placeholder="Password" required>
-                            @if ($errors->has('password'))
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
-                            @endif
                         </div>
                         <div class="input-group mb-5 d-flex justify-content-between">
                             <div class="form-check">
@@ -84,29 +84,30 @@
                         <h2>Welcome</h2>
                         <p>We are happy to have you back.</p>
                     </div>
-
+                    <div>
+                        @if ($errors->has('email'))
+                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                        @endif
+                        @if ($errors->has('password'))
+                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                        @endif
+                        @if ($errors->has('verifypassword'))
+                            <span class="text-danger">{{ $errors->first('verifypassword') }}</span>
+                        @endif
+                    </div>
                     <form action="{{ route('auth.register.post') }}" method="post">
                         @csrf
                         <div class="input-group mb-3">
                             <input type="email" name="email" class="form-control form-control-lg bg-light fs-6"
                                 placeholder="Email address" required autofocus>
-                            @if ($errors->has('email'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
-                            @endif
                         </div>
                         <div class="input-group mb-3">
                             <input type="password" name="password" class="form-control form-control-lg bg-light fs-6"
                                 placeholder="Password" required>
-                            @if ($errors->has('password'))
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
-                            @endif
                         </div>
                         <div class="input-group mb-1">
                             <input type="password" name="verifypassword" class="form-control form-control-lg bg-light fs-6"
                                 placeholder="Vefify Password" required>
-                            @if ($errors->has('verifypassword'))
-                                <span class="text-danger">{{ $errors->first('verifypassword') }}</span>
-                            @endif
                         </div>
                         <div class="input-group mb-3 d-flex justify-content-between">
                         </div>

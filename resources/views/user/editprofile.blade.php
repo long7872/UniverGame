@@ -19,15 +19,32 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="{{ $user->imagePath }}" alt="Admin" class="rounded-circle" width="150">
+                                <img src="{{ Auth::user()->auth_provider!=null ? Auth::user()->imagePath : asset('storage/images/'.Auth::user()->imagePath) }}" alt="Admin"
+                                    class="rounded-circle" width="150">
                                 <div class="mt-3">
                                     <h4>{{ $user->name }}</h4>
                                     {{-- <p class="text-secondary mb-1">Full Stack Developer</p> --}}
                                     {{-- <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> --}}
                                     {{-- <button class="btn btn-primary">Follow</button> --}}
                                     {{-- <button class="btn btn-outline-primary">Message</button> --}}
+                                    
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            {{-- Upload Image Form --}}
+                            <form class="ml-2" action="{{ route('user.upload-image', ['id'=>Auth::user()->user_id]) }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="imageUpload">Upload New Image</label>
+                                    <input type="file" name="image" id="imageUpload" class="form-control mt-2"
+                                        accept="image/*" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Upload</button>
+                            </form>
+                            {{-- End Upload Image Form --}}
                         </div>
                     </div>
                     <div class="card mt-3">
@@ -88,6 +105,8 @@
                                 <span class="text-secondary">
                                     @if ($user->auth_provider === 'google')
                                         {{ $user->auth_provider_id }}
+                                    @else
+                                        N/A
                                     @endif
                                 </span>
                             </li>
@@ -101,6 +120,8 @@
                                 <span class="text-secondary">
                                     @if ($user->auth_provider === 'facebook')
                                         {{ $user->auth_provider_id }}
+                                    @else
+                                        N/A
                                     @endif
                                 </span>
                             </li>
@@ -109,7 +130,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card mb-3">
-                        <form action="{{ route('user.profile.update', ['id' => Auth::user()->user_id]) }}" method="POST">
+                        <form action="{{ route('user.profile.update', ['id' => $user->user_id]) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
@@ -149,11 +170,11 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <select id="gender" name="gender" class="form-control">
-                                            <option value="-1" {{ $user->gender === -1 ? 'selected' : '' }}>Female
+                                            <option value="0" {{ $user->gender === 0 ? 'selected' : '' }}>Other
                                             </option>
                                             <option value="1" {{ $user->gender === 1 ? 'selected' : '' }}>Male
                                             </option>
-                                            <option value="0" {{ $user->gender === 0 ? 'selected' : '' }}>Other
+                                            <option value="-1" {{ $user->gender === -1 ? 'selected' : '' }}>Female
                                             </option>
                                         </select>
                                     </div>
@@ -164,8 +185,8 @@
                                         <label for="date_of_birth" class="form-label">Date Of Birth</label>
                                     </div>
                                     <div class="col-sm-9">
-                                        <input type="date" id="date_of_birth" name="date_of_birth" class="form-control"
-                                            value="{{ $user->dateOfBirth }}">
+                                        <input type="date" id="date_of_birth" name="date_of_birth"
+                                            class="form-control" value="{{ $user->dateOfBirth }}">
                                     </div>
                                 </div>
                                 <hr>

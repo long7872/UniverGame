@@ -33,7 +33,7 @@
                     <!-- Hiển thị avatar và tên người dùng -->
                     <div class="user-menu">
                         <a class="nav-link" href="javascript:void(0)">
-                            <img src="{{ Auth::user()->imagePath }}" alt="Avatar"
+                            <img src="{{ Auth::user()->auth_provider!=null ? Auth::user()->imagePath : asset('storage/images/'.Auth::user()->imagePath) }}" alt="Avatar"
                                 style="width: 24px; height: 24px; border-radius: 50%;"> {{ Auth::user()->name }}</a>
                         <!-- Menu thả xuống -->
                         <div class="dropdown-menu">
