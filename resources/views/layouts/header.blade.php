@@ -17,7 +17,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">CONTACT</a>
+          <a class="nav-link" href="{{ route('uploadGame') }}">CONTACT</a>
         </li>
 
         <li class="nav-item">
