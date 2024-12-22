@@ -94,3 +94,10 @@ Route::get('/uploadGame', function () {
     return view('uploadGame');
 })->name('uploadGame');
 
+Route::get('/managermentUser', function () {
+    return view('managermentUser');
+})->name('managermentUser');
+
+Route::get('/report', function () {
+    return view('report');
+})->name('report');

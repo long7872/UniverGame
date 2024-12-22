@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{ asset('css/framegame.css') }}">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <link rel="stylesheet" href="{{ asset('css/upload.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/managerUser.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/userReport.css') }}">
     <!-- Search -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -96,7 +98,8 @@
 
     <script>
         // Kiểm tra nếu URL chứa 'login' hoặc 'signup' thì ẩn footer
-        if (window.location.pathname.includes('login') || window.location.pathname.includes('signup')) {
+        if (window.location.pathname.includes('login') || window.location.pathname.includes('signup')||window.location.pathname.includes('uploadGame')
+        ||window.location.pathname.includes('managermentUser')||window.location.pathname.includes('report')) {
             document.querySelector('.footer-Hidden').style.display = 'none';
              document.querySelector('.Nav-header').style.display = 'none';
         } else {
@@ -104,6 +107,7 @@
             document.querySelector('.footer-Hidden').style.display = 'block';
              document.querySelector('.Nav-header').style.display = 'flex';
         }
+
     </script>
     <script>
         if (window.location.hash === '#_=_') {
