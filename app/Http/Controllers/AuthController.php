@@ -44,7 +44,7 @@ class AuthController extends Controller
             }
         }
 
-        return redirect(route('login'))->with('error', 'Invalid credentials');
+        return redirect(route('auth.login'))->with('error', 'Invalid credentials');
     }
 
 
@@ -65,9 +65,9 @@ class AuthController extends Controller
         $user->timestamps = now();
 
         if ($user->save()) {
-            return redirect(route('login'))->with('success', 'User created successfully');
+            return redirect(route('auth.login'))->with('success', 'User created successfully');
         }
-        return redirect(route('login'))->with('error', 'Failed to created account');
+        return redirect(route('auth.login'))->with('error', 'Failed to created account');
     }
 
     public function logout(Request $request)
@@ -117,7 +117,7 @@ class AuthController extends Controller
                     if ($new_user->save()) {
                         Auth::login($new_user, true);
                     } else {
-                        return redirect(route('login'))->with('error', 'Failed to created account');
+                        return redirect(route('auth.login'))->with('error', 'Failed to created account');
                     }
     
                 } else {

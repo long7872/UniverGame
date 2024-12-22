@@ -18,8 +18,8 @@
                 <div class="row">
                     <!-- Game Embed Area -->
                     <div class="col-lg-10 game-frame offset-lg-1">
-                        <object data="{{ asset('storage/game/'. $game->gamePath) }}" class="game-object"
-                            allow="fullscreen" allowfullscreen>
+                        <object data="{{ asset('storage/game/' . $game->gamePath) }}" class="game-object" allow="fullscreen"
+                            allowfullscreen>
                             <!-- Nội dung dự phòng nếu không thể tải trang trò chơi -->
                             <p>The game failed to download. Please try again later.</p>
                         </object>
@@ -48,24 +48,93 @@
 
                             <div class="rating-section">
                                 <h3>{{ $game->name }}</h3>
-                                <p>{{ $game->total_plays }} lượt chơi</p>
+                                <p>{{ $game->total_plays }} total plays</p>
                                 <div class="rating-buttons">
                                     <div class="rating-score">
                                         <p><strong>{{ $game->rating }}</strong> <i class="bi bi-star-fill"></i></p>
                                     </div>
-                                    <button class="rating-btn" data-rate="like">
-                                        <i class="bi bi-hand-thumbs-up fa-lg" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="rating-btn" data-rate="dislike">
-                                        <i class="bi bi-hand-thumbs-down fa-lg" aria-hidden="true"></i>
-                                    </button>
-                                    <!-- Dropdown for reporting -->
+
+                                    {{-- like_dislike = 0,  --}}
+                                    @if ($userStatus === null)
+                                        <button class="rating-btn" data-rate="like" data-id="{{ $game->game_id }}"
+                                            id="like-btn">
+                                            <i class="bi bi-hand-thumbs-up fa-lg" aria-hidden="true"></i>
+                                        </button>
+                                        <button class="rating-btn" data-rate="dislike" data-id="{{ $game->game_id }}"
+                                            id="dislike-btn">
+                                            <i class="bi bi-hand-thumbs-down fa-lg" aria-hidden="true"></i>
+                                        </button>
+                                    @else
+                                        @if ($userStatus->like_dislike === 1)
+                                            <button class="rating-btn active-like" data-rate="like"
+                                                data-id="{{ $game->game_id }}" id="like-btn">
+                                                <i class="bi bi-hand-thumbs-up fa-lg" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="rating-btn" data-rate="dislike" data-id="{{ $game->game_id }}"
+                                                id="dislike-btn">
+                                                <i class="bi bi-hand-thumbs-down fa-lg" aria-hidden="true"></i>
+                                            </button>
+                                        @elseif ($userStatus->like_dislike === -1)
+                                            <button class="rating-btn" data-rate="like" data-id="{{ $game->game_id }}"
+                                                id="like-btn">
+                                                <i class="bi bi-hand-thumbs-up fa-lg" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="rating-btn active-dislike" data-rate="dislike"
+                                                data-id="{{ $game->game_id }}" id="dislike-btn">
+                                                <i class="bi bi-hand-thumbs-down fa-lg" aria-hidden="true"></i>
+                                            </button>
+                                        @else
+                                            <button class="rating-btn" data-rate="like" data-id="{{ $game->game_id }}"
+                                                id="like-btn">
+                                                <i class="bi bi-hand-thumbs-up fa-lg" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="rating-btn" data-rate="dislike" data-id="{{ $game->game_id }}"
+                                                id="dislike-btn">
+                                                <i class="bi bi-hand-thumbs-down fa-lg" aria-hidden="true"></i>
+                                            </button>
+                                        @endif
+                                    @endif
+
                                     <div class="dropdown">
-                                        <button class="dropdown-btn" id="dropDownReport">Báo cáo</button>
+                                        <button class="dropdown-btn" id="dropDownReport">Report</button>
                                         <div class="dropdownReport-content">
-                                            <a href="#" data-report="bug">Lỗi</a>
-                                            <a href="#" data-report="harmful">Có hại</a>
-                                            <a href="#" data-report="illegal">Vi phạm pháp luật</a>
+                                            <a href="#" data-report="bug">Error</a>
+                                            <a href="#" data-report="harmful">Harmful</a>
+                                            <a href="#" data-report="illegal">Violation of the law</a>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        @if ($userStatus === null)
+                                            <button class="bookmark-btn unactive"><i class="fa-solid fa-bookmark"></i> Bookmark</button>
+                                        @else
+                                            @if ($userStatus->bookmark === 1)
+                                                <button class="bookmark-btn active"><i class="fa-solid fa-bookmark"></i> Bookmark</button>
+                                            @else
+                                                <button class="bookmark-btn unactive"><i class="fa-solid fa-bookmark"></i> Bookmark</button>
+                                            @endif
+                                        @endif
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="loginModalLabel"></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Please login to perform this action.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <a href="{{ route('auth.login') }}" class="btn btn-primary">Login</a>
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +171,8 @@
                                         aria-labelledby="description-tab">
                                         {{ $game->descrip }}
                                     </div>
-                                    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                                    <div class="tab-pane fade" id="reviews" role="tabpanel"
+                                        aria-labelledby="reviews-tab">
                                         <p>Coloring book air plant shabby chic, crucifix normcore raclette cred swag artisan
                                             activated charcoal. PBR&B fanny pack pok pok gentrify truffaut kitsch helvetica
                                             jean
@@ -191,4 +261,49 @@
             </div>
         </div>
     </div>
+
+    <script>
+        let startTime;
+    
+        // Lưu thời điểm người dùng vào trang
+        window.onload = function () {
+            startTime = Date.now();
+        };
+    
+        // Gửi thời gian đã sử dụng trước khi rời trang
+        window.onbeforeunload = function () {
+            const endTime = Date.now();
+            const timeSpent = Math.round((endTime - startTime) / 1000); // Thời gian tính bằng giây
+    
+            // Gửi dữ liệu đến server
+            navigator.sendBeacon('/games/log-time', JSON.stringify({
+                game_id: {{ $game->game_id }},
+                time_spent: timeSpent,
+            }));
+            console.log(JSON.stringify({
+                game_id: {{ $game->game_id }},
+                time_spent: timeSpent,
+            }));
+            
+            startTime = Date.now();
+        };
+        // Gửi thời gian đã sử dụng trước khi rời trang
+        //  window.onbeforeunload = async function() {
+        //     const endTime = Date.now();
+        //     const timeSpent = Math.round((endTime - startTime) / 1000); // Thời gian tính bằng giây
+
+        //     await fetch('/games/log-time', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             'X-CSRF-TOKEN': '{{ csrf_token() }}' // Gửi CSRF token qua header
+        //         },
+        //         body: JSON.stringify({
+        //             game_id: {{ $game->game_id }},
+        //             time_spent: timeSpent
+        //         })
+        //     });
+        //     startTime = Date.now();
+        // };
+    </script>
 @endsection

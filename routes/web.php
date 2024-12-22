@@ -26,13 +26,16 @@ Route::get('/', function () {
 // Home page start
 Route::get('/index', [HomeController::class, 'index'])->name('index');
 
-
+// Game
 Route::prefix('games')->name('games.')->group(function () {
     Route::get('/{id}', [GameController::class, 'index'])->name('play');
-
+    
+    Route::post('/log-time', [GameController::class, 'logTime'])->name('log-time');
     Route::get('/filter/{category}', [GameController::class, 'filterByCategory'])->name('filter');
     Route::get('/pagination/{type}/{id}/{page}', [GameController::class, 'paging'])->name('page');
-
+    Route::get('/rating/{id}/{action}', [GameController::class, 'rating'])->name('rate');
+    Route::get('/bookmark/{id}/{action}', [GameController::class, 'bookmark'])->name('bookmark');
+    
     Route::get('/update', [GameController::class, 'update']);
 });
 // Home page end
@@ -54,6 +57,7 @@ Route::prefix('user')->name('user.')->group(function() {
     Route::middleware(['auth'])->group(function () {
         Route::get('/profile/{id}', [UserController::class, 'index'])->name('profile');
         Route::put('/profile/{id}/set-password', [UserController::class, 'setPassword'])->name('set-password');
+        Route::post('/profile/{id}/upload-image', [UserController::class, 'uploadImage'])->name('upload-image');
         Route::get('/profile/edit/{id}', [UserController::class, 'edit'])->name('profile.edit');
         Route::put('/update/{id}', [UserController::class, 'update'])->name('profile.update');
         Route::get('/recent/{id}', [UserController::class, 'showRecentGame'])->name('recent');

@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="{{ asset('storage/images/logo-uni.png') }}" type="image/x-icon">
     <title>UniverGame</title>
 
     <!-- Bootstrap core CSS -->
@@ -90,6 +91,8 @@
     <script src="{{ asset('js/likeDislikeButton.js') }}"></script>
     <script src="{{ asset('js/login.js') }}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         // Kiểm tra nếu URL chứa 'login' hoặc 'signup' thì ẩn footer
         if (window.location.pathname.includes('login') || window.location.pathname.includes('signup')) {
@@ -107,6 +110,9 @@
                 ? history.replaceState(null, null, window.location.href.split('#')[0])
                 : window.location.hash = '';
         }
+    </script>
+    <script>
+        const isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
     </script>
 
 </body>
