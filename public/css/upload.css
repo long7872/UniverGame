@@ -1,5 +1,5 @@
 .upload-game-container {
-    min-height: 100vh;
+    height: 100vh;
     background: #f8f9fa;
 }
 .form-wrapper {
@@ -197,3 +197,64 @@ body {
         transform: translateY(0);
     }
 }
+
+
+
+/* fsjkasf */
+.left-sidebar {
+  display: flex;
+  flex-direction: column; /* Đảm bảo các phần tử bên trong sidebar được sắp xếp theo chiều dọc */
+  min-height: 100%; /* Chiều cao của sidebar bằng với chiều cao của row */
+  background-color: #f8f9fa; /* Màu nền sáng cho sidebar */
+  border-radius: 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow nhẹ tạo hiệu ứng nổi */
+  padding: 20px 0; /* Padding cho sidebar */
+  overflow-y: auto; /* Cho phép cuộn nếu nội dung vượt quá chiều cao */
+  position: relative;
+}
+
+
+.sidebar {
+  margin: 0;
+}
+
+.list-group-item {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px; /* Rounded corners for the list items */
+  margin: 5px 0; /* Space between list items */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.list-group-item:hover {
+  background-color: #007bff; /* Hover effect with a blue background */
+  color: white; /* Text color on hover */
+}
+
+.sidebar-link {
+  display: block;
+  color: #333; /* Default color */
+  text-decoration: none; /* Remove underline */
+  font-size: 16px; /* Make the font size consistent */
+  font-weight: 500; /* Slightly bolder font for better readability */
+}
+
+.sidebar-link:hover {
+  color: white; /* Change text color when hovering over the link */
+}
+
+
+/* Style cho icon toggle */
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff; /* Màu sắc icon */
+  cursor: pointer;
+  z-index: 10; /* Đảm bảo icon nằm trên sidebar */
+}
+
+/* Sidebar mặc định được hiển thị */
