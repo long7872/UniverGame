@@ -1,0 +1,199 @@
+.upload-game-container {
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+.form-wrapper {
+    max-width: 600px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+.form-wrapper h1 {
+    font-size: 2rem;
+    color: #343a40;
+}
+.form-wrapper .form-group label {
+    font-size: 1rem;
+    color: #495057;
+}
+.form-wrapper .form-control {
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+.form-wrapper .btn {
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    background: #007bff;
+    color: #fff;
+}
+.form-wrapper .btn:hover {
+    background: #0056b3;
+}
+
+/* dragfilek */
+body {
+    font-family: sans-serif;
+    background-color: #eeeeee;
+  }
+  
+  .file-upload {
+    background-color: #ffffff;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .file-upload-btn {
+    width: 100%;
+    margin: 0;
+    color: #fff;
+    background: #1FB264;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #15824B;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .file-upload-btn:hover {
+    background: #1AA059;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .file-upload-btn:active {
+    border: 0;
+    transition: all .2s ease;
+  }
+  
+  .file-upload-content {
+    display: none;
+    text-align: center;
+  }
+  
+  .file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .image-upload-wrap {
+    margin-top: 20px;
+    border: 4px dashed #1FB264;
+    position: relative;
+  }
+  
+  .image-dropping,
+  .image-upload-wrap:hover {
+    background-color: #1FB264;
+    border: 4px dashed #ffffff;
+  }
+  
+  .image-title-wrap {
+    padding: 0 15px 15px 15px;
+    color: #222;
+  }
+  
+  .drag-text {
+    text-align: center;
+  }
+  
+  .drag-text h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #15824B;
+    padding: 60px 0;
+  }
+  
+  .file-upload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .remove-image {
+    width: 200px;
+    margin: 0;
+    color: #fff;
+    background: #cd4535;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #b02818;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .remove-image:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .remove-image:active { 
+    border: 0;
+    transition: all .2s ease;
+  }
+
+  /* upload file game  */
+ .game-upload{
+    background-color: white !important;
+ }
+ 
+ /* Định dạng cho tiêu đề */
+ .upload-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    animation: color-change 3s infinite alternate, bounce-up-down 2s infinite ease-in-out;
+}
+
+/* Thêm animation cho màu sắc */
+@keyframes color-change {
+    0% {
+        color: #007bff;
+        text-shadow: 2px 2px 5px rgba(0, 123, 255, 0.5);
+    }
+    50% {
+        color: #28a745;
+        text-shadow: 2px 2px 5px rgba(40, 167, 69, 0.5);
+    }
+    100% {
+        color: #ffc107;
+        text-shadow: 2px 2px 5px rgba(255, 193, 7, 0.5);
+    }
+}
+
+/* Animation lên xuống */
+@keyframes bounce-up-down {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

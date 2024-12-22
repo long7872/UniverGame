@@ -86,3 +86,7 @@ Route::get('/games', function () {
 // Route::get('/login', function () {
 //     return view('login');
 // })->name('login');
+Route::get('/uploadGame', function () {
+    return view('uploadGame');
+})->name('uploadGame');
+

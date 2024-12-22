@@ -15,9 +15,9 @@
                 <a class="nav-link" href="{{ route('index') }}">HOME</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="">CONTACT</a>
-            </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('uploadGame') }}">CONTACT</a>
+        </li>
 
             {{-- <li class="nav-item">
                 <a class="nav-link" href="shop.html"><i class="fas fa-shopping-cart"></i> SHOP</a>
