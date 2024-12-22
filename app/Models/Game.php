@@ -34,4 +34,9 @@ class Game extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user__games', 'game_id', 'user_id');
+    }
+
 }
