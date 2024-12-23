@@ -16,7 +16,7 @@
             </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('uploadGame') }}">CONTACT</a>
+          <a class="nav-link" href="{{ route('admin.upload-game') }}">CONTACT</a>
         </li>
 
             {{-- <li class="nav-item">
@@ -54,6 +54,9 @@
                                 </li>
                                 <li><a href="{{ route('auth.logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
                                 </li> --}}
+                                @if (Auth::user()->privilege === 1)
+                                <li><a href="{{ route('admin.management-user') }}"><i class="fa-solid fa-user-gear"></i> Management</a></li>
+                                @endif
                                 <li><a href="{{ route('user.recent', ['id' => Auth::user()->user_id]) }}"><i class="fas fa-clock"></i> Recently Played</a></li>
                                 <li><a href="{{ route('user.bookmark', ['id' => Auth::user()->user_id]) }}"><i class="fas fa-bookmark"></i> Bookmarks</a></li>
                                 <li><a href="{{ route('user.profile', ['id' => Auth::user()->user_id]) }}"><i class="fas fa-user"></i> My Profile</a></li>

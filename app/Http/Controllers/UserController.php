@@ -28,22 +28,23 @@ class UserController extends Controller
 
         return redirect()->route('user.profile', ['id' => $user->user_id])->with('success', 'Password has been set successfully.');
     }
-    
-    public function uploadImage(Request $request, $user_id) {
+
+    public function uploadImage(Request $request, $user_id)
+    {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:8192',
         ]);
-    
+
         $user = User::findOrFail($user_id);;
         $imageName = time() . '.' . $request->image->extension();
-    
+
         // Lưu ảnh vào thư mục public/storage/images
         $request->image->move(public_path('storage/images'), $imageName);
-    
+
         // Cập nhật đường dẫn ảnh trong database
         $user->imagePath = $imageName;
         $user->save();
-    
+
         return redirect()->back()->with('success', 'Image uploaded successfully!');
     }
 
@@ -51,6 +52,17 @@ class UserController extends Controller
     {
         $user = User::find($user_id);
         return view('user.editprofile', compact('user'));
+    }
+
+    public function destroy($user_id)
+    {
+
+        // Logic để xóa tài khoản
+        $user = User::findOrFail($user_id);
+        $user->delete();
+
+        // Redirect hoặc trả về thông báo
+        return redirect()->back()->with('success', 'Account deleted successfully.');
     }
 
     public function showRecentGame($user_id)
@@ -115,5 +127,11 @@ class UserController extends Controller
         // dd($request->all());
         // Redirect hoặc trả về phản hồi
         return redirect()->back()->with('success', 'Profile updated successfully.');
+    }
+
+    public static function getImage(User $user)
+    {
+
+        return $user->auth_provider != null ? $user->imagePath : asset('storage/images/' . $user->imagePath);
     }
 }

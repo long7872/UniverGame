@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->increments("game_id");
-            $table->string("name");
+            $table->string("name", 40);
             $table->string("imagePath");
             $table->string("gamePath");
             $table->unsignedInteger("category_id")->nullable();
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedInteger("total_likes")->default(0);
             $table->unsignedInteger("total_dislikes")->default(0);
             $table->float("rating",2,1)->default(0);
-            $table->string("descrip");
+            $table->string("descrip", 1000);
             $table->timestamps();
 
             $table->foreign("category_id")

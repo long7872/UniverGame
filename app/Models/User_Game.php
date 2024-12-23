@@ -14,11 +14,11 @@ class User_Game extends Model
     protected $keyType = 'int'; // Nếu khóa chính là kiểu số
 
     public function user() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function game() {
-        return $this->belongsTo(Game::class);
+        return $this->belongsTo(Game::class, 'game_id');
     }
 
 }

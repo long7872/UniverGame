@@ -1,5 +1,5 @@
 // Sự kiện khi nhấn vào nút phân trang
-$(document).on("click", ".pagination a", function (e) {
+$(document).on("click", ".pagination_index a", function (e) {
     e.preventDefault(); // Prevent the default behavior for all clicks
 
     // Check if the clicked link has the 'is_active' class
@@ -134,5 +134,5 @@ function renderPagination(currentPage, lastPage) {
         paginationHtml += `<li><a data-page="${currentPage - 1}" class="disabled"> &gt; </a></li>`;
     }
 
-    $(".pagination").html(paginationHtml);
+    $(".pagination_index").html(paginationHtml);
 }

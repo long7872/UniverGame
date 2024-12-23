@@ -6,10 +6,13 @@ use App\Models\Game;
 use App\Models\User;
 use App\Models\User_Game;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use ZipArchive;
 
 class GameController extends Controller
 {
@@ -74,6 +77,40 @@ class GameController extends Controller
         return view('main.games', compact('game', 'relatedGames', 'controlTypes', 'sameControlGames', 'userStatus'));
     }
 
+    public function uploadGamePost(Request $request)
+    {
+        // Validate dữ liệu
+        $request->validate([
+            'name' => 'required|string|max:40',
+            'descrip' => 'required|string|max:1000',
+            'control_types' => 'required|array|min:1',
+            'control_types.*' => 'exists:control__types,control_type_id', // Kiểm tra tồn tại
+            'category' => 'required|exists:categories,category_id',
+            'gamePath' => 'nullable|file|mimes:zip|max:153600', // Tối đa 150 MB
+            'imagePath' => 'nullable|image|mimes:jpg,jpeg,png|max:8192', // Tối đa 2 MB
+        ]);
+
+        $game = new Game();
+        $game->name = $request->name;
+        $game->descrip = $request->descrip;
+        $game->category_id = $request->category;
+        // Image
+        $imageName = time() . '.' . $request->imagePath->extension();
+        // Lưu ảnh vào thư mục public/storage/images
+        $request->imagePath->move(public_path('storage/gameImages'), $imageName);
+        $game->imagePath = $imageName;
+        // Game
+        $game->gamePath = $this->getGamePath($request);
+        // Time
+        $game->timestamps = now();
+
+        if ($game->save()) {
+            return redirect()->back()->with('success', 'Game uploaded successfully!');
+        } else {
+            return redirect()->back()->with('error', 'Game uploaded failed!');
+        }
+    }
+
     public function rating($game_id, $action)
     {
         // Check and take
@@ -122,6 +159,41 @@ class GameController extends Controller
 
         // Trả về phản hồi thành công
         return response()->json(['success' => true, 'message' => $message]);
+    }
+
+    public function report(Request $request)
+    {
+        if (!Auth::check()) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
+        $validatedData = $request->validate([
+            'gameId' => 'required|integer|exists:games,game_id', // Kiểm tra gameId có tồn tại không
+            'report' => 'required|string|in:bug,harmful,illegal',
+        ]);
+
+        $user_id = auth()->id();
+        $game_id = $validatedData['gameId'];
+        $report = $validatedData['report'];
+
+        Log::info('User ID: ' . $user_id);
+        Log::info('Game ID: ' . $game_id);
+        Log::info('Report: ' . $report);
+
+        $user_game = User_Game::where([
+            ['user_id', $user_id],
+            ['game_id', $game_id]
+        ])->first();
+        // Nếu bản ghi không tồn tại, trả về lỗi
+        if (!$user_game) {
+            return response()->json(['success' => false, 'message' => 'User record not found for this game.'], 404);
+        }
+
+        $user_game->report = $report;
+
+        $user_game->save();
+
+        return response()->json(['message' => 'Report submitted successfully!']);
     }
 
     public function bookmark($game_id, $action)
@@ -268,6 +340,81 @@ class GameController extends Controller
         foreach ($games as $index => $game) {
             $imagePath = 'download (' . (($index + 12) % 24) . ').jpg'; // Tạo tên file ảnh
             $game->update(['imagePath' => $imagePath]); // Cập nhật cột imagePath
+        }
+    }
+
+    public function getGamePath($request)
+    {
+        // Kiểm tra xem file đã được gửi lên chưa
+        if (!$request->hasFile('gamePath')) {
+            return redirect()->back()->with('error', 'Not received file');
+        }
+
+        $file = $request->file('gamePath');
+
+        // Kiểm tra định dạng file (zip)
+        if ($file->getClientOriginalExtension() !== 'zip') {
+            return redirect()->back()->with('error', 'Only zip files are allowed');
+        }
+
+        // Tạo thư mục lưu trữ file tạm thời nếu chưa tồn tại
+        $tempDir = public_path('storage/gameArchive');
+        if (!file_exists($tempDir)) {
+            mkdir($tempDir, 0755, true);
+        }
+
+        // Lưu file zip vào thư mục tạm thời
+        $tempPath = $tempDir . '/' . $file->getClientOriginalName();
+        $file->move($tempDir, $file->getClientOriginalName());
+
+        // Giải nén file zip
+        $zip = new ZipArchive;
+        if ($zip->open($tempPath) === true) {
+            $destinationPath = public_path('storage/game');
+
+            // Tạo thư mục đích nếu chưa tồn tại
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+
+            // Lấy danh sách thư mục trước khi giải nén
+            $beforeExtraction = scandir($destinationPath);
+
+            // Giải nén file zip
+            $zip->extractTo($destinationPath);
+            $zip->close();
+
+            // Lấy danh sách thư mục sau khi giải nén
+            $afterExtraction = scandir($destinationPath);
+
+            // Tìm thư mục mới được thêm
+            $newItems = array_diff($afterExtraction, $beforeExtraction);
+            $newFolders = [];
+            foreach ($newItems as $item) {
+                if (is_dir($destinationPath . '/' . $item)) {
+                    $newFolders[] = $item; // Lọc các mục là thư mục
+                }
+            }
+
+            if (count($newFolders) === 1) {
+                $extractedFolderName = $newFolders[0]; // Thư mục mới được giải nén
+                $extractedFolderPath = $extractedFolderName . '/index.html';
+
+                // dd($extractedFolderPath);
+                return $extractedFolderPath;
+
+
+                // Xóa file zip sau khi giải nén
+                // unlink($tempPath);
+
+                return redirect()->back()->with('success', 'File uploaded and extracted successfully. Extracted folder: ' . $extractedFolderName);
+            } elseif (count($newFolders) > 1) {
+                return redirect()->back()->with('error', 'Multiple folders were extracted. Please check the archive.');
+            } else {
+                return redirect()->back()->with('error', 'No new folder found after extraction.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Failed to open zip file');
         }
     }
 }

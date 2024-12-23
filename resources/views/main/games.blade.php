@@ -98,9 +98,9 @@
                                     <div class="dropdown">
                                         <button class="dropdown-btn" id="dropDownReport">Report</button>
                                         <div class="dropdownReport-content">
-                                            <a href="#" data-report="bug">Error</a>
-                                            <a href="#" data-report="harmful">Harmful</a>
-                                            <a href="#" data-report="illegal">Violation of the law</a>
+                                            <a class="report-link" data-id="{{ $game->game_id }}" data-report="bug">Error</a>
+                                            <a class="report-link" data-id="{{ $game->game_id }}" data-report="harmful">Harmful</a>
+                                            <a class="report-link" data-id="{{ $game->game_id }}" data-report="illegal">Violation of the law</a>
                                         </div>
                                     </div>
                                     <div>

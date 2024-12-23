@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="{{ Auth::user()->auth_provider!=null ? Auth::user()->imagePath : asset('storage/images/'.Auth::user()->imagePath) }}" alt="Admin" class="rounded-circle" width="150">
+                                <img src="{{ $user->auth_provider != null ? $user->imagePath : asset('storage/images/' . $user->imagePath) }}" alt="Admin" class="rounded-circle" width="150">
                                 <div class="mt-3">
                                     <h4>{{ $user->name }}</h4>
                                 </div>
@@ -143,7 +143,7 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <a class="btn btn-info " target="__blank"
-                                                href="{{ route('user.profile.edit', ['id' => Auth::user()->user_id]) }}">Edit</a>
+                                                href="{{ route('user.profile.edit', ['id' => $user->user_id]) }}">Edit</a>
                                         </div>
                                     </div>
                                 </div>

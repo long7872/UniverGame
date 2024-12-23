@@ -19,15 +19,15 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="{{ Auth::user()->auth_provider!=null ? Auth::user()->imagePath : asset('storage/images/'.Auth::user()->imagePath) }}" alt="Admin"
-                                    class="rounded-circle" width="150">
+                                <img src="{{ $user->auth_provider != null ? $user->imagePath : asset('storage/images/' . $user->imagePath) }}"
+                                    alt="Admin" class="rounded-circle" width="150">
                                 <div class="mt-3">
                                     <h4>{{ $user->name }}</h4>
                                     {{-- <p class="text-secondary mb-1">Full Stack Developer</p> --}}
                                     {{-- <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> --}}
                                     {{-- <button class="btn btn-primary">Follow</button> --}}
                                     {{-- <button class="btn btn-outline-primary">Message</button> --}}
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,8 @@
                     <div class="card mt-3">
                         <div class="card-body">
                             {{-- Upload Image Form --}}
-                            <form class="ml-2" action="{{ route('user.upload-image', ['id'=>Auth::user()->user_id]) }}" method="POST" enctype="multipart/form-data">
+                            <form class="ml-2" action="{{ route('user.upload-image', ['id' => $user->user_id]) }}"
+                                method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="imageUpload">Upload New Image</label>
@@ -126,6 +127,16 @@
                                 </span>
                             </li>
                         </ul>
+                    </div>
+                    <div class="card mt-3 card-hover">
+                        <div class="card-body text-center">
+                            <form action="{{ route('user.profile.destroy', $user->user_id) }}" method="POST"
+                                onsubmit="return confirm('Are you sure you want to delete this account?');">
+                                @csrf
+                                @method('DELETE')
+                                <button class="text-danger font-weight-bold text-large">Delete Account</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-8">

@@ -15,12 +15,15 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        // Kiểm tra nếu user đã đăng nhập và có quyền admin
-        if (Auth::check() && Auth::user()->privilege) {
-            return $next($request); // Cho phép truy cập
+        if (!Auth::check()) {
+            return redirect(route('auth.login'))->with('error', 'You must be logged in to access this page.');
+        }
+        // Kiểm tra nếu user là admin
+        if (Auth::user()->privilege) {
+            return $next($request);
         }
 
         // Nếu không phải admin, chuyển hướng hoặc trả lỗi
-        return redirect('/')->with('error', 'Access denied. Admins only.');
+        return redirect()->intended('index')->with('error', 'Access denied. Admins only.');
     }
 }

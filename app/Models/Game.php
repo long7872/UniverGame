@@ -17,9 +17,10 @@ class Game extends Model
     
     protected $fillable = [
         'name',
-        'description',
         'imagePath',
         'gamePath',
+        'category_id',
+        'description',        
     ];
 
     public function user_games() {

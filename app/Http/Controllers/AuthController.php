@@ -36,6 +36,12 @@ class AuthController extends Controller
             $remember = $request->has('remember');
             Auth::login($user, $remember);
 
+            if ($user->status == -1) {
+                return redirect(route('auth.login'))->with('error', 'This account has suspended');
+            } else if ($user->status == 0) {
+                $user->status = 1;
+                $user->save();
+            }
             // Phân quyền
             if ($user->privilege) {
                 return redirect()->route('admin.dashboard');
@@ -73,6 +79,11 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         // Xóa phiên đăng nhập
+        $user = User::findOrFail(auth()->id());
+        $user->status = 0;
+        $user->save();
+        // dd($user);
+
         Auth::logout();
 
         // Xóa dữ liệu session hiện tại
@@ -122,6 +133,12 @@ class AuthController extends Controller
     
                 } else {
                     Auth::login($user, true);
+                    if ($user->status == -1) {
+                        return redirect(route('auth.login'))->with('error', 'This account has suspended');
+                    } else if ($user->status == 0) {
+                        $user->status = 1;
+                        $user->save();
+                    }
                 }
                 return redirect()->intended('/index');
             }

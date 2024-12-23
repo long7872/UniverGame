@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedInteger("game_id");
             $table->unsignedInteger("playtime")->default(0);
             $table->tinyInteger("like_dislike")->default(0);
+            $table->string('report', 50)->nullable();
             $table->string("review")->nullable();
             $table->boolean("bookmark")->default(false);
             $table->timestamps();
