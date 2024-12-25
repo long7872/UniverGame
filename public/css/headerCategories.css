@@ -85,87 +85,95 @@
 .navbar-brand img {
     margin-right: 10px;
     margin-left: 40px;
-  }
-  
-  .navbar {
-    background-color: rgba(255, 255, 255, 0.8); /* Màu nền với độ trong suốt */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Phần viền dưới navbar */
-  }
-  
-  .form-inline {
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Màu nền với độ trong suốt */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Phần viền dưới navbar */
+}
+
+.form-inline {
     display: flex;
     align-items: center;
-  }
-  
-  /* .form-control {
+}
+
+/* .form-control {
     width: 200px;
   } */
-  
-  .navbar-nav .nav-item {
-    margin-right: 25px; /* Khoảng cách giữa các mục */
-  }
-  
-  .navbar-nav .nav-item:last-child {
-    margin-right: 0; /* Loại bỏ khoảng cách cho mục cuối cùng */
-  }
-  
-  
-  
-  /* ////////////////////////////////////////////////////////////////////////////////
+
+.navbar-nav .nav-item {
+    margin-right: 25px;
+    /* Khoảng cách giữa các mục */
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+    /* Loại bỏ khoảng cách cho mục cuối cùng */
+}
+
+
+
+/* ////////////////////////////////////////////////////////////////////////////////
   //                                 SEARCH BOX                                 //
   //////////////////////////////////////////////////////////////////////////////// */
-  
-  
-  .searchBox:hover > .searchInput {
-      width: 240px;
-      padding: 0 6px;
-  }
-  
-  .searchBox:hover > .searchButton {
+
+
+.searchBox:hover>.searchInput {
+    width: 240px;
+    padding: 0 6px;
+}
+
+
+.searchBox:hover>.searchButton {
     background: white;
-    color : #2f3640;
-  }
-  
-  .searchButton {
-      color: black;
-      float: right;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: 0.4s;
-  }
-  
-  .searchInput {
-      border: none; /* Loại bỏ các viền khác */
-      border-bottom: 2px solid #000; /* Thêm viền dưới màu trắng với độ dày 2px */
-      background: none;
-      outline:none;
-      float:left;
-      padding: 0;
-      color: black;
-      font-size: 16px;
-      transition: 0.4s;
-      line-height: 40px;
-      width: 0px;
-  
-  
-  }
-  
-  @media screen and (max-width: 620px) {
-  .searchBox:hover > .searchInput {
-      width: 240px;
-      padding: 0 6px;
-  }
-  }
-  /* Kết */
+    color: #2f3640;
+}
+
+.searchButton {
+    color: black;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.searchInput {
+    border: none;
+    /* Loại bỏ các viền khác */
+    border-bottom: 2px solid #000;
+    /* Thêm viền dưới màu trắng với độ dày 2px */
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: black;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+
+
+}
+
+@media screen and (max-width: 620px) {
+    .searchBox:hover>.searchInput {
+        width: 240px;
+        padding: 0 6px;
+    }
+}
+
+/* Kết */
 
 
 
-  
+
 /* Các màu sắc cho mỗi nút */
 .tag:nth-child(1) {
     background: linear-gradient(45deg, #ff66b2, #ff3385);
@@ -236,6 +244,7 @@
     background: linear-gradient(45deg, #8bc34a, #689f38);
     /* Gradient cho Army */
 }
+
 .tag:nth-child(15) {
     background: linear-gradient(45deg, #673ab7, #512da8);
     /* Gradient for Fantasy */

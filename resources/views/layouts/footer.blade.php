@@ -100,10 +100,10 @@
                 <div class="col-md-4 col-lg-3 col-xl-3 ms-8 me-8 mb-md-0 mb-4">
                     <!-- Links -->
                     <h6 class="text-uppercase fw-bold mb-4">Contacts</h6>
-                    <p><i class="fas fa-home me-3"></i> VKY, NY 10012, VietNam</p>
+                    <p><i class="fas fa-home me-3"></i> Trường Sa, Hoà Hải, Ngũ Hành Sơn, Đà Nẵng, Việt Nam</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
-                        info@example.com
+                        long77872@gmail.com
                     </p>
                     <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
                     <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
@@ -117,12 +117,12 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="footer_copyright">
+    {{-- <div class="footer_copyright">
         <div class="d-flex justify-content-center align-items-center">
             <span class="text-center">© 2021 Copyright: </span>
             <a class="text-reset fw-bold ms-2" href="https://mdbootstrap.com/">MDBootstrap.com</a>
         </div>
-    </div>
+    </div> --}}
     <!-- Copyright -->
 
 

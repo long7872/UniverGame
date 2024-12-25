@@ -21,9 +21,10 @@
                                     <h2>Your bookmarked games</h2>
                                 </div>
                             </div>
+                            
                             <div class="col-lg-6">
                                 <div class="main-button">
-                                    <a class="tag" data-category="most" hidden>View All</a>
+                                    <a href="{{ route('index') }}" class="tag">Back to Home</a>
                                 </div>
                             </div>
 
@@ -59,7 +60,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <ul class="pagination">
+                            <ul class="pagination_index">
                                 <li><a data-page="0" class="disabled"> &lt; </a></li>
                                 <li><a data-page="1" class="is_active">1</a></li>
                                 <li><a data-page="2">2</a></li>

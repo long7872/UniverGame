@@ -273,6 +273,19 @@ class GameController extends Controller
         return response()->json($games);
     }
 
+    public function filterByName(Request $request)
+    {
+        $request->validate([
+            'query' => 'required',
+        ]);
+        $query = $request->input('query'); // Lấy từ khóa tìm kiếm
+        $games = Game::where('name', 'LIKE', '%' . $query . '%')->paginate(24); // Tìm kiếm và phân trang
+        // dd($games);
+
+        return view('main.searchview', compact('games', 'query'));
+    }
+
+
     public function paging($type, $id, $page)
     {
         if (!is_numeric($page) || $page <= 0) {
@@ -331,17 +344,28 @@ class GameController extends Controller
     }
 
     public function update()
-    {
-        $perPage = 24;
-        // Lấy tất cả các games
-        $games = Game::orderBy('game_id', 'desc')->paginate($perPage, ['*'], 'page', 3);
+{
+    $perPage = 24;
+    $page = 1;
 
-        // Lặp qua từng game và cập nhật imagePath
-        foreach ($games as $index => $game) {
+    // Lặp qua tất cả các trang
+    do {
+        // Lấy các game từ trang hiện tại
+        $games = Game::whereNotIn('game_id', [1, 2, 3])->paginate($perPage, ['*'], 'page', $page);
+
+        // Lặp qua từng game trong trang hiện tại
+        foreach ($games->items() as $index => $game) {
             $imagePath = 'download (' . (($index + 12) % 24) . ').jpg'; // Tạo tên file ảnh
-            $game->update(['imagePath' => $imagePath]); // Cập nhật cột imagePath
+            // dd($imagePath); // Kiểm tra giá trị của imagePath
+            $game->imagePath = $imagePath;
+            $game->save();
         }
-    }
+
+        // Tăng số trang lên 1
+        $page++;
+    } while ($games->hasMorePages()); // Lặp cho đến khi hết các trang
+}
+
 
     public function getGamePath($request)
     {

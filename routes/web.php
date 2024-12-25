@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -33,12 +34,13 @@ Route::prefix('games')->name('games.')->group(function () {
 
     Route::post('/log-time', [GameController::class, 'logTime'])->name('log-time');
     Route::get('/filter/{category}', [GameController::class, 'filterByCategory'])->name('filter');
+    Route::get('/filter-name/search', [GameController::class, 'filterByName'])->name('search');
     Route::get('/pagination/{type}/{id}/{page}', [GameController::class, 'paging'])->name('page');
     Route::get('/rating/{id}/{action}', [GameController::class, 'rating'])->name('rate');
     Route::post('/report', [GameController::class, 'report'])->name('report');
     Route::get('/bookmark/{id}/{action}', [GameController::class, 'bookmark'])->name('bookmark');
 
-    Route::get('/update', [GameController::class, 'update']);
+    Route::get('/update/faker', [GameController::class, 'update']);
 });
 // Home page end
 
@@ -83,6 +85,19 @@ Route::prefix('admin')->middleware(['admin'])->name('admin.')->group(function ()
 });
 // Admin end
 
+// Contact start
+
+Route::prefix('contact')->name('contact.')->group(function () {
+    Route::controller(ContactController::class)->group(function () {
+        Route::get('/home', 'index')->name('home');
+        Route::post('/send', 'sendMessage')->name('send');
+
+        Route::post('/send-test', 'sendTestEmail')->name('send-test');
+    });
+});
+
+// Contact end
+
 
 // Privilege start
 // Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
@@ -119,3 +134,6 @@ Route::get('/managermentUser', function () {
 Route::get('/report', function () {
     return view('admin.report');
 })->name('report');
+Route::get('/receive-mail', function() {
+    return view('emails.contact');
+});

@@ -16,7 +16,7 @@
             </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('admin.upload-game') }}">CONTACT</a>
+          <a class="nav-link" href="{{ route('contact.home') }}">CONTACT</a>
         </li>
 
             {{-- <li class="nav-item">
@@ -83,12 +83,14 @@
 
 
             <li class="nav-item">
+                <form action="{{ route('games.search') }}" method="GET">
                 <div class="searchBox custom-search-box">
-                    <input class="searchInput" type="text" name="" placeholder="Search">
-                    <button class="searchButton" href="#" style="margin-left: 10px;">
-                        <i class="material-icons">search</i>
-                    </button>
-                </div>
+                        <input class="searchInput" type="text" name="query" placeholder="Search">
+                        <button class="searchButton" type="submit" style="margin-left: 10px;">
+                            <i class="material-icons">search</i>
+                        </button>
+                    </div>
+                </form>
 
             </li>
         </ul>
